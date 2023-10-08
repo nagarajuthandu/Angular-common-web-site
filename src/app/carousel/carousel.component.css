@@ -1,0 +1,24 @@
+.carousel{
+    width: 100%; /* 100% width of its parent container */
+    max-width: 1520px; /* Limit the maximum width */
+    height: 450px; /* Fixed height */
+    overflow: hidden; /* Ensure content doesn't overflow */
+}
+.carousel {
+    width: 100%; /* 100% width of its parent container */
+  }
+  
+  .carousel-inner {
+    height: 100%; /* 100% height of the carousel container */
+  }
+  
+  .carousel-item {
+    height: 100%; /* 100% height of the carousel container */
+  }
+  
+  .carousel-item img {
+    object-fit: cover; /* Maintain aspect ratio and cover the item */
+    width: 100%; /* 100% width of the item */
+    height: 100%; /* 100% height of the item */
+  }
+  

@@ -1,0 +1,24 @@
+/* Style for the phone pill */
+.contact-pill.phone {
+    background-color: #007bff; /* Blue color */
+    color: white; /* White text color */
+    padding: 5px 10px;
+    border-radius: 20px; /* Rounded shape */
+  }
+  
+  /* Style for the email pill */
+  .contact-pill.email {
+    background-color: #28a745; /* Green color */
+    color: white; /* White text color */
+    padding: 5px 10px;
+    border-radius: 20px; /* Rounded shape */
+  }
+  
+  /* Style for the code pill */
+  .contact-pill.code {
+    background-color: #dc3545; /* Red color */
+    color: white; /* White text color */
+    padding: 5px 10px;
+    border-radius: 20px; /* Rounded shape */
+  }
+  
