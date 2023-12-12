@@ -1,0 +1,18 @@
+[
+    {
+      "image": "assets/education.jpg",
+      "title": "Education",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non odio vitae elit bibendum tristique."
+    },
+    {
+      "image": "assets/technology.jpg",
+      "title": "Technology",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non odio vitae elit bibendum tristique."
+    },
+    {
+      "image": "assets/promotion.jpg",
+      "title": "Promotion",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non odio vitae elit bibendum tristique."
+    }
+  ]
+  

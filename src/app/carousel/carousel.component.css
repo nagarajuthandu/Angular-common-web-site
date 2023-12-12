@@ -1,6 +1,5 @@
 .carousel{
     width: 100%; /* 100% width of its parent container */
-    max-width: 1520px; /* Limit the maximum width */
     height: 450px; /* Fixed height */
     overflow: hidden; /* Ensure content doesn't overflow */
 }
@@ -21,4 +20,9 @@
     width: 100%; /* 100% width of the item */
     height: 100%; /* 100% height of the item */
   }
-  
+    /* Media query for screens smaller than a certain width (e.g., 768px) */
+@media (max-width: 768px) {
+  .carousel {
+      height: 300px; /* Adjust the height for smaller screens */
+  }
+}

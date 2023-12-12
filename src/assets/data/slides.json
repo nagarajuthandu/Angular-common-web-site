@@ -1,0 +1,18 @@
+[
+    {
+      "image": "/assets/slide1.jpg",
+      "caption": "First slide label",
+      "description": "Some representative placeholder content for the first slide."
+    },
+    {
+      "image": "/assets/slide2.jpg",
+      "caption": "Second slide label",
+      "description": "Some representative placeholder content for the second slide."
+    },
+    {
+      "image": "/assets/slide1.jpg",
+      "caption": "Third slide label",
+      "description": "Some representative placeholder content for the third slide."
+    }
+  ]
+  

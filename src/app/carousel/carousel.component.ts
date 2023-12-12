@@ -1,4 +1,5 @@
-import { Component,Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SlideService } from '../common-services/slide.service';
 
 
 @Component({
@@ -6,7 +7,14 @@ import { Component,Input } from '@angular/core';
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.css']
 })
-export class CarouselComponent {
- 
- 
+export class CarouselComponent implements OnInit {
+  slides: any[] = [];
+
+  constructor(private slideService: SlideService) {}
+
+  ngOnInit() {
+    this.slideService.getSlides().subscribe(slides => {
+      this.slides = slides;
+    });
+  }
 }

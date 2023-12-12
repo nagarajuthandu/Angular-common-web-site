@@ -22,6 +22,13 @@ export class NavigationComponent {
 
   isNavbarOpen: boolean = false;
 
+  menuItems = [
+    { label: 'Home', link: '/home' },
+    { label: 'About', link: '/about' },
+    { label: 'Services', link: '/services' },
+    { label: 'Contact Us', link: '/contact-us' }
+  ];
+
   toggleNavbar() {
     this.isNavbarOpen = !this.isNavbarOpen;
   }
