@@ -4,10 +4,9 @@
         <div class="card mb-4">
           <img [src]="product.imageUrl" class="card-img-top" alt="{{ product.name }}">
           <div class="card-body">
-            <h5 class="card-title">{{ product.name }}</h5>
-            <p class="card-text">{{ product.description }}</p>
-            <p class="card-text">{{ product.price | currency }}</p>
-            <!-- Add more product details as needed -->
+            <h5 class="card-title name">{{ product.name }}</h5>
+            <p class="card-text description">{{ product.description }}</p>
+            <p class="card-text price">{{ product.price | currency }}</p>
           </div>
         </div>
       </div>

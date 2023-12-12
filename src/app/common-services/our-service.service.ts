@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class OurService {
-  private servicesUrl = '/assets/data/services.json'; // Assuming the JSON file is in the assets folder
+  private servicesUrl = '/assets/data/our-servicess.json'; // Assuming the JSON file is in the assets folder
 
   constructor(private http: HttpClient) {}
 

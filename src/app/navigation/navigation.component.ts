@@ -1,12 +1,22 @@
-import { Component,HostListener } from '@angular/core';
+import { Component,HostListener,OnInit } from '@angular/core';
+import { MenuService } from '../common-services/menu.service';
 
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.css']
 })
-export class NavigationComponent {
+export class NavigationComponent implements OnInit{
   isNavigationSticky = false
+  menuItems: any[] = [];
+
+  constructor(private menuService: MenuService) {}
+
+  ngOnInit() {
+    this.menuService.getMenuItems().subscribe(items => {
+      this.menuItems = items;
+    });
+  }
 
   @HostListener('window:scroll', ['$event'])
   onScroll() {
@@ -21,13 +31,6 @@ export class NavigationComponent {
   }
 
   isNavbarOpen: boolean = false;
-
-  menuItems = [
-    { label: 'Home', link: '/home' },
-    { label: 'About', link: '/about' },
-    { label: 'Services', link: '/services' },
-    { label: 'Contact Us', link: '/contact-us' }
-  ];
 
   toggleNavbar() {
     this.isNavbarOpen = !this.isNavbarOpen;
