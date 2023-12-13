@@ -1,0 +1,36 @@
+/* left-nav.component.css */
+
+.left-nav {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+  }
+  
+  .left-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .left-nav li {
+    margin-bottom: 10px;
+  }
+  
+  .left-nav a {
+    display: block; /* Make the entire link area clickable */
+    padding: 10px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 12px;
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+  }
+  
+  .left-nav a:hover {
+    color: #ffc107;
+    background-color: #555; /* Change background color on hover if desired */
+  }
+  

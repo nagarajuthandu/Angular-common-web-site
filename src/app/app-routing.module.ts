@@ -6,6 +6,8 @@ import { ServicesComponent } from './widgets/services/services.component';
 import { ContactUsComponent } from './widgets/contact-us/contact-us.component';
 import { PageComponent } from './page/page.component';
 import { ProductCrudComponent } from './Admin/product-crud/product-crud.component';
+import { LoginComponent } from './Admin/login/login.component';
+import { AdminPageComponent } from './Admin/admin-page/admin-page.component';
 
 const routes: Routes = [
   {
@@ -35,7 +37,13 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    component: ProductCrudComponent,
+    component: AdminPageComponent,
+    children: [{ path: 'products', component: ProductCrudComponent }],
+  },
+  {
+    path: 'admin',
+    component: AdminPageComponent,
+    children: [{path: 'login', component: LoginComponent }],
   },
 ];
 

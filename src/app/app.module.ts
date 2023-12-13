@@ -20,6 +20,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { PageComponent } from './page/page.component';
 import { ProductCrudComponent } from './Admin/product-crud/product-crud.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './Admin/login/login.component';
+import { FormsModule } from '@angular/forms'
+import { SessionService } from './services/session.service';
+import { AdminPageComponent } from './Admin/admin-page/admin-page.component';
+import { LeftNavComponent } from './Admin/left-nav/left-nav.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +38,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     TopBarComponent,
     FooterComponent,
     PageComponent,
-    ProductCrudComponent
+    ProductCrudComponent,
+    LoginComponent,
+    AdminPageComponent,
+    LeftNavComponent
   ],
   imports: [
     BrowserModule,
@@ -43,9 +51,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     MatMenuModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [SessionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
