@@ -1,0 +1,45 @@
+[
+  {
+    "path": "",
+    "redirectTo": "/home",
+    "pathMatch": "full"
+  },
+  {
+    "path": "home",
+    "component": "PageComponent",
+    "children": [
+      { "path": "", "component": "HomeComponent" }
+    ]
+  },
+  {
+    "path": "about",
+    "component": "PageComponent",
+    "children": [
+      { "path": "", "component": "AboutComponent" }
+    ]
+  },
+  {
+    "path": "services",
+    "component": "PageComponent",
+    "children": [
+      { "path": "", "component": "ServicesComponent" }
+    ]
+  },
+  {
+    "path": "contact-us",
+    "component": "PageComponent",
+    "children": [
+      { "path": "", "component": "ContactUsComponent" }
+    ]
+  },
+  {
+    "path": "admin",
+    "component": "AdminPageComponent",
+    "children": [
+      { "path": "products", "component": "ProductCrudComponent" },
+      { "path": "login", "component": "LoginComponent" },
+      { "path": "dashboard", "component": "DashboardComponent" },
+      { "path": "services", "component": "ServiceCrudComponent" }
+    ]
+  }
+]

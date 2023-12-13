@@ -4,7 +4,7 @@
   <button class="btn btn-primary" (click)="openForm()">Add Service</button>
 </div>
 
-<div *ngIf="showForm" class="mb-3 d-flex justify-content-center w-75">
+<div *ngIf="showForm" class="mb-3 d-flex">
   <form [formGroup]="serviceForm">
     <div class="form-group">
       <label>Title: <input formControlName="title" class="form-control"></label>

@@ -4,7 +4,7 @@
   <button class="btn btn-primary" (click)="openForm()">Add Product</button>
 </div>
 
-<div *ngIf="showForm" class="mb-3 d-flex justify-content-center w-75">
+<div *ngIf="showForm" class="mb-3 d-flex">
     <form [formGroup]="productForm">
       <div class="form-group">
         <label>Name: <input formControlName="name" class="form-control"></label>
