@@ -5,6 +5,7 @@ import { AboutComponent } from './widgets/about/about.component';
 import { ServicesComponent } from './widgets/services/services.component';
 import { ContactUsComponent } from './widgets/contact-us/contact-us.component';
 import { PageComponent } from './page/page.component';
+import { ProductCrudComponent } from './Admin/product-crud/product-crud.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
     path: 'contact-us',
     component: PageComponent,
     children: [{ path: '', component: ContactUsComponent }],
+  },
+  {
+    path: 'admin',
+    component: ProductCrudComponent,
   },
 ];
 

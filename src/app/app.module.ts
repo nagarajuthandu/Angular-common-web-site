@@ -18,7 +18,8 @@ import { TopBarComponent } from './sections/top-bar/top-bar.component';
 import { FooterComponent } from './sections/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PageComponent } from './page/page.component';
-
+import { ProductCrudComponent } from './Admin/product-crud/product-crud.component';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { PageComponent } from './page/page.component';
     ProductListComponent,
     TopBarComponent,
     FooterComponent,
-    PageComponent
+    PageComponent,
+    ProductCrudComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,8 @@ import { PageComponent } from './page/page.component';
     MatToolbarModule,
     MatIconModule,
     MatMenuModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

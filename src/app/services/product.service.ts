@@ -13,4 +13,18 @@ export class ProductService {
   getProducts(): Observable<any[]> {
     return this.http.get<any[]>(this.productUrl);
   }
+
+  private products: any[] = [];
+
+  addProduct(product: any): void {
+    this.products.push(product);
+  }
+
+  updateProduct(index: number, product: any): void {
+    this.products[index] = product;
+  }
+
+  deleteProduct(index: number): void {
+    this.products.splice(index, 1);
+  }
 }
