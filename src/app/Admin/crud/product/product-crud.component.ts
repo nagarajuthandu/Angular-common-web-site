@@ -1,7 +1,7 @@
 // product-crud.component.ts
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ProductService } from '../../services/product.service';
+import { ProductService } from '../../../services/product.service';
 import { SessionService } from 'src/app/services/session.service';
 import { Router } from '@angular/router';
 @Component({

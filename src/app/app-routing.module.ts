@@ -5,9 +5,11 @@ import { AboutComponent } from './widgets/about/about.component';
 import { ServicesComponent } from './widgets/services/services.component';
 import { ContactUsComponent } from './widgets/contact-us/contact-us.component';
 import { PageComponent } from './page/page.component';
-import { ProductCrudComponent } from './Admin/product-crud/product-crud.component';
+import { ProductCrudComponent } from './Admin/crud/product/product-crud.component';
 import { LoginComponent } from './Admin/login/login.component';
 import { AdminPageComponent } from './Admin/admin-page/admin-page.component';
+import { DashboardComponent } from './Admin/dashboard/dashboard.component';
+import { ServiceCrudComponent } from './Admin/crud/services/services.component';
 
 const routes: Routes = [
   {
@@ -45,6 +47,16 @@ const routes: Routes = [
     component: AdminPageComponent,
     children: [{path: 'login', component: LoginComponent }],
   },
+  {
+    path: 'admin',
+    component: AdminPageComponent,
+    children: [{path: 'dashboard', component: DashboardComponent }],
+  },
+  {
+    path: 'admin',
+    component: AdminPageComponent,
+    children: [{path: 'services', component: ServiceCrudComponent }],
+  }
 ];
 
 @NgModule({

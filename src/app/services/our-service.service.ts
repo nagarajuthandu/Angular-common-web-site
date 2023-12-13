@@ -13,4 +13,18 @@ export class OurService {
   getServices(): Observable<any[]> {
     return this.http.get<any[]>(this.servicesUrl);
   }
+
+  private services: any[] = [];
+
+  addService(service: any): void {
+    this.services.push(service);
+  }
+
+  updateService(index: number, service: any): void {
+    this.services[index] = service;
+  }
+
+  deleteService(index: number): void {
+    this.services.splice(index, 1);
+  }
 }

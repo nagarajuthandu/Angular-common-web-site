@@ -18,13 +18,15 @@ import { TopBarComponent } from './sections/top-bar/top-bar.component';
 import { FooterComponent } from './sections/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PageComponent } from './page/page.component';
-import { ProductCrudComponent } from './Admin/product-crud/product-crud.component';
+import { ProductCrudComponent } from './Admin/crud/product/product-crud.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './Admin/login/login.component';
 import { FormsModule } from '@angular/forms'
 import { SessionService } from './services/session.service';
 import { AdminPageComponent } from './Admin/admin-page/admin-page.component';
 import { LeftNavComponent } from './Admin/left-nav/left-nav.component';
+import { DashboardComponent } from './Admin/dashboard/dashboard.component';
+import { ServiceCrudComponent } from './Admin/crud/services/services.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +43,9 @@ import { LeftNavComponent } from './Admin/left-nav/left-nav.component';
     ProductCrudComponent,
     LoginComponent,
     AdminPageComponent,
-    LeftNavComponent
+    LeftNavComponent,
+    DashboardComponent,
+    ServiceCrudComponent
   ],
   imports: [
     BrowserModule,
