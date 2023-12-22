@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { OurService } from '../../../services/our-service.service';
 import { SessionService } from 'src/app/services/session.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-service-crud',
@@ -18,7 +19,7 @@ export class ServiceCrudComponent implements OnInit {
   constructor(
     private serviceService: OurService,
     private fb: FormBuilder,
-    private sessionService: SessionService,
+    private authService: AuthService,
     private router: Router
   ) {
     this.serviceForm = this.fb.group({
@@ -29,7 +30,7 @@ export class ServiceCrudComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (!this.sessionService.isLoggedIn) {
+    if (!this.authService.isAuthenticated) {
       this.router.navigate(['/admin/login']);
     }
     this.serviceService.getServices().subscribe((services) => {

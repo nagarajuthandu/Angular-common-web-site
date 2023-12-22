@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SessionService } from 'src/app/services/session.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-admin-page',
@@ -7,5 +7,5 @@ import { SessionService } from 'src/app/services/session.service';
   styleUrls: ['./admin-page.component.css']
 })
 export class AdminPageComponent {
-  constructor(public sessionService: SessionService) {}
+  constructor(public authService: AuthService) {}
 }

@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ProductService } from '../../../services/product.service';
 import { SessionService } from 'src/app/services/session.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-product-crud',
   templateUrl: './product-crud.component.html',
@@ -14,7 +15,7 @@ export class ProductCrudComponent implements OnInit {
   editedIndex: number | null = null;
   showForm: boolean = false;
 
-  constructor(private productService: ProductService, private fb: FormBuilder, private sessionService: SessionService,private router: Router) {
+  constructor(private productService: ProductService, private fb: FormBuilder, private authService: AuthService,private router: Router) {
     this.productForm = this.fb.group({
       name: [''],
       description: [''],
@@ -24,7 +25,7 @@ export class ProductCrudComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (!this.sessionService.isLoggedIn) {
+    if (!this.authService.isAuthenticated()) {
       this.router.navigate(['/admin/login']);
     }
     this.productService.getProducts().subscribe((products) => {
