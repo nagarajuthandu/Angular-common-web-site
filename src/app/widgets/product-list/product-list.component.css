@@ -1,3 +1,6 @@
+.container{
+  padding: 16px;
+}
 .card-text.description {
     overflow: hidden;
     text-overflow: ellipsis;
