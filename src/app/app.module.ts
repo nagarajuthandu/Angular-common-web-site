@@ -27,6 +27,7 @@ import { AdminPageComponent } from './Admin/admin-page/admin-page.component';
 import { LeftNavComponent } from './Admin/left-nav/left-nav.component';
 import { DashboardComponent } from './Admin/dashboard/dashboard.component';
 import { ServiceCrudComponent } from './Admin/crud/services/services.component';
+import { ToggleButtonComponent } from './form-components/toggle-button/toggle-button.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,8 @@ import { ServiceCrudComponent } from './Admin/crud/services/services.component';
     AdminPageComponent,
     LeftNavComponent,
     DashboardComponent,
-    ServiceCrudComponent
+    ServiceCrudComponent,
+    ToggleButtonComponent
   ],
   imports: [
     BrowserModule,
