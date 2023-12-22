@@ -1,39 +1,51 @@
-<h2 class="text-center">Services</h2>
+<nav aria-label="breadcrumb" class="mb-3">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="admin/dashboard">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Services</li>
+  </ol>
+</nav>
 
-<div class="mb-3 text-center" *ngIf="!showForm">
-  <button class="btn btn-primary" (click)="openForm()">Add Service</button>
-</div>
+  <div *ngIf="showForm">
+      <form [formGroup]="serviceForm" class="w-50">
+        <div class="form-group">
+          <label>Title:  </label>
+          <input formControlName="title" class="form-control">
+         
+        </div>
+        <div class="form-group">
+          <label>Description: </label>
+          <textarea formControlName="description" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Image URL: </label>
+          <input formControlName="image" class="form-control">
+        </div>
 
-<div *ngIf="showForm" class="mb-3 d-flex">
-  <form [formGroup]="serviceForm">
-    <div class="form-group">
-      <label>Title: <input formControlName="title" class="form-control"></label>
-    </div>
-    <div class="form-group">
-      <label>Description: <textarea formControlName="description" class="form-control"></textarea></label>
-    </div>
-    <div class="form-group">
-      <label>Image URL: <input formControlName="image" class="form-control"></label>
+        <div class="form-group">
+          <button *ngIf="editedIndex === null" class="btn btn-success" (click)="addService()">Add Service</button>
+          <button *ngIf="editedIndex !== null" class="btn btn-info" (click)="updateService()">Update Service</button>
+        </div>
+      </form>
+  </div>
+
+  <!-- Service List -->
+  <div class="flex-wrap justify-content-center" *ngIf="!showForm">
+
+    <div class="mb-3">
+      <button class="btn btn-primary" (click)="openForm()">Add Service</button>
     </div>
 
-    <button *ngIf="editedIndex === null" class="btn btn-success" (click)="addService()">Add Service</button>
-    <button *ngIf="editedIndex !== null" class="btn btn-info" (click)="updateService()">Update Service</button>
-  </form>
-</div>
-
-<!-- Service List -->
-<div class="d-flex flex-wrap justify-content-center" *ngIf="!showForm">
-  <div class="service-item card m-2 d-flex flex-column w-75" *ngFor="let service of services; let i = index">
-    <div class="card-body">
-      <img [src]="service.image" alt="{{ service.title }}" class="img-fluid" width="100">
-    </div>
-    <div class="card-body flex-grow-1">
-      <h3 class="card-title">{{ service.title }}</h3>
-      <p class="card-text">{{ service.description }}</p>
-    </div>
-    <div class="card-footer d-flex justify-content-between">
-      <button class="btn btn-primary" (click)="editService(i)">Edit</button>
-      <button class="btn btn-danger" (click)="deleteService(i)">Delete</button>
+    <div class="service-item card m-2 d-flex flex-column" *ngFor="let service of services; let i = index">
+      <div class="card-body">
+        <img [src]="service.image" alt="{{ service.title }}" class="img-fluid" width="100">
+      </div>
+      <div class="card-body flex-grow-1">
+        <h3 class="card-title">{{ service.title }}</h3>
+        <p class="card-text">{{ service.description }}</p>
+      </div>
+      <div class="card-footer d-flex justify-content-between">
+        <button class="btn btn-primary" (click)="editService(i)">Edit</button>
+        <button class="btn btn-danger" (click)="deleteService(i)">Delete</button>
+      </div>
     </div>
   </div>
-</div>
