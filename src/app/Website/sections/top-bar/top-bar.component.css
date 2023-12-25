@@ -1,0 +1,26 @@
+/* Common styles for contact pills */
+.contact-pill {
+  color: white; /* White text color */
+  padding: 5px 10px;
+  border-radius: 20px; /* Rounded shape */
+}
+
+/* Styles for specific contact pills */
+.phone {
+  background-color: #007bff; /* Blue color */
+}
+
+.email {
+  background-color: #28a745; /* Green color */
+}
+
+.code {
+  background-color: #dc3545; /* Red color */
+}
+
+/* Media query for screens smaller than a certain width (e.g., 768px) */
+@media (max-width: 768px) {
+  .top-bar {
+      display: none;
+  }
+}
