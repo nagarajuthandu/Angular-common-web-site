@@ -6,6 +6,5 @@ import { Component,Input } from '@angular/core';
   styleUrls: ['./widgets-page.component.css']
 })
 export class WidgetsPageComponent {
-  @Input() isSliderVisible: boolean = false;
-  @Input() isProductsVisible: boolean = false;
+  @Input() contentSections: any[] = [];
 }

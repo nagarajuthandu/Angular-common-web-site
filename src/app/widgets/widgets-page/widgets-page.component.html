@@ -1,3 +1,16 @@
-<app-carousel *ngIf="isSliderVisible"></app-carousel>
-<app-product-list *ngIf="isProductsVisible"></app-product-list>
+<div class="flex-container">
+<div *ngFor="let section of contentSections" class="flex-item">
+    <ng-container [ngSwitch]="section.type">
+      <app-heading *ngSwitchCase="'heading'" [content]="section.content"></app-heading>
+      <app-sub-heading *ngSwitchCase="'heading'" [content]="section.content"></app-sub-heading>
+      <app-paragraph *ngSwitchCase="'paragraph'" [content]="section.content"></app-paragraph>
+      <app-image *ngSwitchCase="'image'" [content]="section"></app-image>
+      <app-carousel *ngSwitchCase="'carousel'"></app-carousel>
+      <app-product-list *ngSwitchCase="'products'"></app-product-list>
+      <app-services-list *ngSwitchCase="'services'"></app-services-list>
+      <app-contact-form *ngSwitchCase="'contactform'"></app-contact-form>
+    </ng-container>
+</div>
+</div>
 
+  

@@ -1,11 +1,28 @@
-{
-    "aboutUs": {
-      "title": "About Us",
-      "content": [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non odio vitae elit bibendum tristique. Proin eu ante sed tortor iaculis faucibus eu at quam. Duis vel mi id nisi vehicula eleifend ut id quam.",
-        "Nulla facilisi. Suspendisse potenti. Vivamus tempus posuere tellus, nec malesuada tortor vulputate in."
-      ],
-      "imageSrc": "assets/slide1.jpg"
-    }
-  }
+  [
+      {
+        "type": "paragraph",
+         "content": "This is about us text for company web information."
+      },
+      {
+        "type": "paragraph",
+         "content": "This is about us text for company web information."
+      },
+      {
+        "type": "paragraph",
+         "content": "This is about us text for company web information."
+      },
+      {
+        "type": "paragraph",
+         "content": "This is about us text for company web information."
+      },
+      {
+        "type": "paragraph",
+         "content": "This is about us text for company web information."
+      },
+      {
+        "type": "image",
+        "src": "assets/slide1.jpg",
+        "alt": "Image Alt Text"
+      }
+    ]
   
