@@ -12,56 +12,31 @@ import { DashboardComponent } from './Admin/dashboard/dashboard.component';
 import { ServiceCrudComponent } from './Admin/crud/services/services.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
     path: '',
-    redirectTo: '/home',
-    pathMatch: 'full',
-  },
-  {
-    path: 'home',
     component: PageComponent,
-    children: [{ path: '', component: HomeComponent }],
-  },
-  {
-    path: 'about',
-    component: PageComponent,
-    children: [{ path: '', component: AboutComponent }],
-  },
-  {
-    path: 'services',
-    component: PageComponent,
-    children: [{ path: '', component: ServicesComponent }],
-  },
-  {
-    path: 'contact-us',
-    component: PageComponent,
-    children: [{ path: '', component: ContactUsComponent }],
+    children: [
+      { path: 'home', component: HomeComponent },
+      { path: 'about', component: AboutComponent },
+      { path: 'services', component: ServicesComponent },
+      { path: 'contact-us', component: ContactUsComponent },
+    ],
   },
   {
     path: 'admin',
     component: AdminPageComponent,
-    children: [{ path: 'products', component: ProductCrudComponent }],
+    children: [
+      { path: 'products', component: ProductCrudComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'services', component: ServiceCrudComponent },
+    ],
   },
-  {
-    path: 'admin',
-    component: AdminPageComponent,
-    children: [{path: 'login', component: LoginComponent }],
-  },
-  {
-    path: 'admin',
-    component: AdminPageComponent,
-    children: [{path: 'dashboard', component: DashboardComponent }],
-  },
-  {
-    path: 'admin',
-    component: AdminPageComponent,
-    children: [{path: 'services', component: ServiceCrudComponent }],
-  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}
