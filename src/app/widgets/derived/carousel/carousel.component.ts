@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SlideService } from '../../services/slide.service';
+import { SlideService } from '../../../services/slide.service';
 
 
 @Component({
