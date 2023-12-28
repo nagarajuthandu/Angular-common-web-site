@@ -12,16 +12,19 @@ import { WidgetService } from 'src/app/services/widget.service';
 export class CreatePageComponent implements OnInit{
   newPage: Page = { pagename: '', widgets: [] };
   widgetOptions:any=[]
+  pages:any=[]
   constructor(private pageService: PageService, private widgetService: WidgetService) {}
 
   ngOnInit(): void {
     this.loadWidgets();
+    this.loadPages();
   }
 
   onSubmit(): void {
     this.pageService.createPage(this.newPage).subscribe(
       (createdPage) => {
-        console.log('Page created successfully', createdPage);
+        this.loadWidgets();
+        this.loadPages();
       },
       (error) => {
         console.error('Error creating page', error);
@@ -38,5 +41,23 @@ export class CreatePageComponent implements OnInit{
         console.error('Error loading widgets', error);
       }
     );
+  }
+
+  loadPages(): void {
+    this.pageService.getPages().subscribe(
+      (pages) => {
+        this.pages = pages;
+      },
+      (error) => {
+        console.error('Error loading widgets', error);
+      }
+    );
+  }
+
+  onDeletePage(page: any): void {
+    this.pageService.deletePage(page._id).subscribe(()=>{
+      this.loadWidgets();
+      this.loadPages();
+    })
   }
 }

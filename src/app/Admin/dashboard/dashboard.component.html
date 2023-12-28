@@ -4,7 +4,7 @@
     <h2 class="mb-0">{{ page.pagename }} Page Configuration</h2>
     <div class="d-flex gap-2">
       <div *ngFor="let widget of page.widgets">
-        <app-toggle-button label="{{ widget.type }}" (toggleChange)="onSliderToggle($event)"></app-toggle-button>
+        <app-toggle-button label="{{ widget.type }}" (toggleChange)="onSliderToggle($event)" [isChecked]="true"></app-toggle-button>
       </div>
     </div>
   </div>

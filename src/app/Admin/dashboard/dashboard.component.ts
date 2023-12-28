@@ -9,8 +9,6 @@ import { PageService } from '../../services/page.service'; // Replace with the c
 export class DashboardComponent implements OnInit {
 
   pages:any
-  isHomeSliderVisible: boolean = true;
-  isHomeProductsVisible: boolean = true;
 
   constructor(private PageService: PageService) {}
 
@@ -30,7 +28,6 @@ export class DashboardComponent implements OnInit {
   }
 
   onSliderToggle(isChecked: boolean): void {
-    this.isHomeSliderVisible = isChecked;
   }
 
 }

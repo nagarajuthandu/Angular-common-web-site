@@ -11,11 +11,13 @@ import { MenuService } from 'src/app/services/menu.service';
 export class MenuComponent implements OnInit {
   pages: any[] = [];
   selectedPage: any;
+  menuItems:any[] = []
 
   constructor(private pageService: PageService, private menuService:MenuService) {}
 
   ngOnInit(): void {
     this.loadPages();
+    this.loadMenuItems();
   }
 
   loadPages(): void {
@@ -33,6 +35,22 @@ export class MenuComponent implements OnInit {
     let menu:any = {}
     menu.label=label
     menu.link='/'+label
-    this.menuService.createMenuItem(menu).subscribe();
+    this.menuService.createMenuItem(menu).subscribe(()=>{
+      this.loadMenuItems();
+    });
+    
+  }
+
+  onDeleteMenuItem(menuItem:any):void{
+    this.menuService.deleteMenuItem(menuItem._id).subscribe(()=>{
+      this.loadMenuItems();
+    });
+    
+  }
+
+  loadMenuItems():any {
+    this.menuService.getMenuItems().subscribe((menuItems)=>{
+      this.menuItems = menuItems
+    })
   }
 }

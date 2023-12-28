@@ -1,0 +1,78 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* Two columns with equal width */
+    gap: 10px; /* Gap between grid items */
+  }
+  
+  .grid-header {
+    font-weight: bold;
+  }
+  
+  .grid-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+
+
+  /* menu.component.css */
+.menu-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .select-container {
+    position: relative;
+  }
+  
+  /* Style the select arrow */
+  .select-container::after {
+    content: '\25BC'; /* Unicode character for a down arrow */
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+  
+  /* Style the select */
+  select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    appearance: none; /* Remove default styles on some browsers */
+  }
+  
+  /* Style the button */
+  .menu-container button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .menu-container button:hover {
+    background-color: #0056b3;
+  }
+  

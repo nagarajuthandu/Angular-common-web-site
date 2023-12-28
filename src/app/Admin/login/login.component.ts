@@ -12,6 +12,9 @@ import { UserService } from 'src/app/services/users.service';
 export class LoginComponent implements OnInit{
   username: string = '';
   password: string = '';
+  email: string = '';
+  confirmPassword: string=''
+
   credentials:any={}
 
   constructor(private router: Router, private sessionService : SessionService,private authService: AuthService) {}
@@ -29,5 +32,13 @@ export class LoginComponent implements OnInit{
         this.router.navigate(['/admin/products']);
       }
     });
+  }
+
+  register():void{
+    let user:any = {}
+    user.username = this.username
+    user.password = this.password
+    user.email = this.email
+    this.authService.createUser(user).subscribe()
   }
 }

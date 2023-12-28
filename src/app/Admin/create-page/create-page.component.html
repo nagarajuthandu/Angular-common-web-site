@@ -1,19 +1,32 @@
-<div>
-    <h2>Create a New Page</h2>
-    <form (ngSubmit)="onSubmit()">
-      <div class="mb-3">
-        <label for="pageName" class="form-label">Page Name:</label>
-        <input type="text" id="pageName" [(ngModel)]="newPage.pagename" name="pageName" class="form-control" required>
-      </div>
-  
-      <div class="mb-3">
-        <label for="widgetSelector" class="form-label">Select Widgets:</label>
-        <select id="widgetSelector" [(ngModel)]="newPage.widgets" name="widgetSelector" class="form-select" multiple>
-          <option *ngFor="let widget of widgetOptions" [value]="widget._id">{{ widget.type }}</option>
-        </select>
-      </div>
-  
+<div class="create-page-container">
+  <h2>Create a New Page</h2>
+  <form (ngSubmit)="onSubmit()" class="form-container">
+    <div class="form-item">
+      <label for="pageName" class="form-label">Page Name:</label>
+      <input type="text" id="pageName" [(ngModel)]="newPage.pagename" name="pageName" class="form-control" required>
+    </div>
+
+    <div class="form-item">
+      <label for="widgetSelector" class="form-label">Select Widgets:</label>
+      <select id="widgetSelector" [(ngModel)]="newPage.widgets" name="widgetSelector" class="form-select" multiple>
+        <option *ngFor="let widget of widgetOptions" [value]="widget._id">{{ widget.type }}</option>
+      </select>
+    </div>
+
+    <div class="form-item">
       <button type="submit" class="btn btn-primary">Create Page</button>
-    </form>
+    </div>
+  </form>
+</div>
+
+ <div class="page-list">
+  <h2>Created Pages</h2>
+  <div class="page-grid">
+    <div *ngFor="let page of pages" class="page-item">
+      <div class="page-name">{{ page.pagename }}</div>
+      <div class="delete-button">
+        <button class="btn btn-danger" (click)="onDeletePage(page)">Delete</button>
+      </div>
+    </div>
   </div>
-  
+</div>
