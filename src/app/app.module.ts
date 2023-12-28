@@ -31,6 +31,8 @@ import { HeadingComponent } from './widgets/basic/heading/heading.component';
 import { SubHeadingComponent } from './widgets/basic/sub-heading/sub-heading.component';
 import { ImageComponent } from './widgets/basic/image/image.component';
 import { ContactFormComponent } from './widgets/derived/contact-form/contact-form.component';
+import { MenuComponent } from './Admin/menu/menu.component';
+import { CreatePageComponent } from './Admin/create-page/create-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +55,9 @@ import { ContactFormComponent } from './widgets/derived/contact-form/contact-for
     HeadingComponent,
     SubHeadingComponent,
     ImageComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    MenuComponent,
+    CreatePageComponent
   ],
   imports: [
     BrowserModule,

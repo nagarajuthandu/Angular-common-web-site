@@ -4,6 +4,30 @@
   }
   
   .flex-item {
-    flex: 1 1 50%
+    flex: 1 1 100%
   }
-  
+/* Center the item */
+.center {
+  align-self: center;
+  justify-content: center;
+  text-align: center;
+}
+
+  /* Align the item to the left */
+.left {
+  align-self: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+/* Align the item to the right */
+.right {
+  align-self: flex-end;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+/* Full width */
+.full-width {
+  flex-basis: 100%;
+}

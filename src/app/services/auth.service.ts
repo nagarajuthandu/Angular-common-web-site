@@ -41,4 +41,11 @@ export class AuthService {
     const token = this.getToken();
     return !!token; 
   }
+
+  createUser(userinfo:any): Observable<AuthResponse>{
+    return this.http.post<AuthResponse>(`${this.apiUrl}/auth/register`, userinfo)
+    .pipe(
+      tap(response => this.saveToken(response.token))
+    );
+  }
 }

@@ -6,6 +6,8 @@ import { LoginComponent } from './Admin/login/login.component';
 import { AdminPageComponent } from './Admin/admin-page/admin-page.component';
 import { DashboardComponent } from './Admin/dashboard/dashboard.component';
 import { ServiceCrudComponent } from './Admin/crud/services/services.component';
+import { MenuComponent } from './Admin/menu/menu.component';
+import { CreatePageComponent } from './Admin/create-page/create-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -17,6 +19,8 @@ const routes: Routes = [
     path: 'admin',
     component: AdminPageComponent,
     children: [
+      { path: 'menu', component: MenuComponent },
+      { path: 'create-page', component: CreatePageComponent },
       { path: 'products', component: ProductCrudComponent },
       { path: 'login', component: LoginComponent },
       { path: 'dashboard', component: DashboardComponent },
