@@ -1,0 +1,11 @@
+<div>
+    <h2>Menu Configuration</h2>
+    <div class="d-flex">
+      <label for="pageSelector">Select a Page:</label>
+      <select id="pageSelector" [(ngModel)]="selectedPage" name="pageSelector">
+        <option *ngFor="let page of pages" [value]="page.pagename">{{ page.pagename }}</option>
+      </select>
+    </div>
+    <button (click)="onAddToMenu(selectedPage)">Add to Menu</button>
+  </div>
+  

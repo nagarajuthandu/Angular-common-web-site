@@ -1,0 +1,19 @@
+<div>
+    <h2>Create a New Page</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="pageName" class="form-label">Page Name:</label>
+        <input type="text" id="pageName" [(ngModel)]="newPage.pagename" name="pageName" class="form-control" required>
+      </div>
+  
+      <div class="mb-3">
+        <label for="widgetSelector" class="form-label">Select Widgets:</label>
+        <select id="widgetSelector" [(ngModel)]="newPage.widgets" name="widgetSelector" class="form-select" multiple>
+          <option *ngFor="let widget of widgetOptions" [value]="widget._id">{{ widget.type }}</option>
+        </select>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Create Page</button>
+    </form>
+  </div>
+  
