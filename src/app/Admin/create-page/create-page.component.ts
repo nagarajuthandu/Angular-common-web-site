@@ -1,7 +1,6 @@
 // create-page.component.ts
 import { Component, OnInit } from '@angular/core';
 import { PageService } from '../../services/page.service'; 
-import { Page } from '../../models/page.model';
 import { WidgetService } from 'src/app/services/widget.service';
 
 @Component({
@@ -10,9 +9,11 @@ import { WidgetService } from 'src/app/services/widget.service';
   styleUrls: ['./create-page.component.css']
 })
 export class CreatePageComponent implements OnInit{
-  newPage: Page = { pagename: '', widgets: [] };
+  newPage: any = {}
   widgetOptions:any=[]
+  selectedWidgets: any[] = [];
   pages:any=[]
+  isEditMode = false;
   constructor(private pageService: PageService, private widgetService: WidgetService) {}
 
   ngOnInit(): void {
@@ -21,15 +22,25 @@ export class CreatePageComponent implements OnInit{
   }
 
   onSubmit(): void {
-    this.pageService.createPage(this.newPage).subscribe(
-      (createdPage) => {
-        this.loadWidgets();
-        this.loadPages();
-      },
-      (error) => {
-        console.error('Error creating page', error);
-      }
-    );
+    this.newPage.widgets=this.selectedWidgets
+    if(this.isEditMode)
+    {
+      this.pageService.updatePage(this.newPage._id,this.newPage).subscribe(
+        (createdPage) => {
+          this.loadWidgets();
+          this.loadPages();
+        }
+      );
+    }
+    else{
+      this.pageService.createPage(this.newPage).subscribe(
+        (updatePage) => {
+          this.loadWidgets();
+          this.loadPages();
+        }
+      );
+    }
+
   }
 
   loadWidgets(): void {
@@ -59,5 +70,25 @@ export class CreatePageComponent implements OnInit{
       this.loadWidgets();
       this.loadPages();
     })
+  }
+
+  onEditPage(page: any) {
+    this.newPage = page
+    const widgets= page.widgets.map((m:any) =>m._id)
+    this.selectedWidgets=widgets
+    this.isEditMode = true;
+  }
+
+  cancelEdit() {
+    this.resetForm();
+  }
+
+  private resetForm() {
+    this.isEditMode = false;
+  }
+
+  getWidgetType(widgetId: string): string {
+    const widget = this.widgetOptions.find((w:any) => w._id === widgetId);
+    return widget ? widget.type : '';
   }
 }

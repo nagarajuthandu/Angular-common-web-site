@@ -43,7 +43,7 @@ export class AuthService {
   }
 
   createUser(userinfo:any): Observable<AuthResponse>{
-    return this.http.post<AuthResponse>(`${this.apiUrl}/auth/register`, userinfo)
+    return this.http.post<AuthResponse>(`${this.apiUrl}/users`, userinfo)
     .pipe(
       tap(response => this.saveToken(response.token))
     );

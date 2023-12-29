@@ -14,6 +14,8 @@ export class LoginComponent implements OnInit{
   password: string = '';
   email: string = '';
   confirmPassword: string=''
+  firstName: string=''
+  lastName:string=''
 
   credentials:any={}
 
@@ -38,6 +40,8 @@ export class LoginComponent implements OnInit{
     let user:any = {}
     user.username = this.username
     user.password = this.password
+    user.firstName = this.firstName
+    user.lastName = this.lastName
     user.email = this.email
     this.authService.createUser(user).subscribe()
   }
