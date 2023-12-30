@@ -8,7 +8,7 @@
       <app-image *ngSwitchCase="'image'" [src]="section.src"></app-image>
 
       <!-- derived -->
-      <app-carousel *ngSwitchCase="'carousel'"></app-carousel>
+      <app-carousel *ngSwitchCase="'carousel'" [content]="section.content"></app-carousel>
       <app-product-list *ngSwitchCase="'products'"></app-product-list>
       <app-services-list *ngSwitchCase="'services'" [content]="section.content"></app-services-list>
       <app-contact-form *ngSwitchCase="'contactform'"></app-contact-form>

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -22,7 +21,6 @@ import { SessionService } from './services/session.service';
 import { AdminPageComponent } from './Admin/admin-page/admin-page.component';
 import { LeftNavComponent } from './Admin/left-nav/left-nav.component';
 import { DashboardComponent } from './Admin/dashboard/dashboard.component';
-import { ServiceCrudComponent } from './Admin/crud/services/services.component';
 import { ToggleButtonComponent } from './widgets/basic/toggle-button/toggle-button.component';
 import { WidgetsPageComponent } from './widgets/widgets-page/widgets-page.component';
 import { ParagraphComponent } from './widgets/basic/paragraph/paragraph.component';
@@ -32,6 +30,9 @@ import { ImageComponent } from './widgets/basic/image/image.component';
 import { ContactFormComponent } from './widgets/derived/contact-form/contact-form.component';
 import { MenuComponent } from './Admin/menu/menu.component';
 import { CreatePageComponent } from './Admin/create-page/create-page.component';
+import { CardComponent } from './Admin/widgets/card/card.component';
+import { WidgetsCrudPageComponent } from './Admin/widgets/widgets-crud-page/widgets-crud-page.component';
+import { SliderWidgetCrudComponent } from './Admin/widgets/slider-widget-crud/slider-widget-crud.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +47,6 @@ import { CreatePageComponent } from './Admin/create-page/create-page.component';
     AdminPageComponent,
     LeftNavComponent,
     DashboardComponent,
-    ServiceCrudComponent,
     ToggleButtonComponent,
     WidgetsPageComponent,
     ParagraphComponent,
@@ -55,7 +55,10 @@ import { CreatePageComponent } from './Admin/create-page/create-page.component';
     ImageComponent,
     ContactFormComponent,
     MenuComponent,
-    CreatePageComponent
+    CreatePageComponent,
+    CardComponent,
+    WidgetsCrudPageComponent,
+    SliderWidgetCrudComponent
   ],
   imports: [
     BrowserModule,

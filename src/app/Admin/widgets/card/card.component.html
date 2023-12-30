@@ -1,0 +1,44 @@
+<div *ngIf="showForm">
+    <form [formGroup]="serviceForm" class="w-50">
+      <div class="form-group">
+        <label>Title: </label>
+        <input formControlName="title" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Description: </label>
+        <textarea formControlName="description" class="form-control"></textarea>
+      </div>
+      <div class="form-group">
+        <label>Image URL: </label>
+        <input formControlName="image" class="form-control">
+      </div>
+  
+      <div class="form-group">
+        <button *ngIf="editedIndex === null" class="btn btn-success" (click)="addService()">Add Service</button>
+        <button *ngIf="editedIndex !== null" class="btn btn-info" (click)="updateService()">Update Service</button>
+        <button class="btn btn-secondary" (click)="closeForm()">Cancel</button>
+      </div>
+    </form>
+  </div>
+  
+  <div class="flex-wrap justify-content-center" *ngIf="!showForm">
+  
+    <div class="mb-3">
+      <button class="btn btn-primary" (click)="openForm()">Add Card</button>
+    </div>
+  
+    <div class="service-item card m-2 d-flex flex-column" *ngFor="let service of services; let i = index">
+      <div class="card-body">
+        <img [src]="service.content.image" alt="{{ service.content.title }}" class="img-fluid" width="100">
+      </div>
+      <div class="card-body flex-grow-1">
+        <h3 class="card-title">{{ service.content.title }}</h3>
+        <p class="card-text">{{ service.content.description }}</p>
+      </div>
+      <div class="card-footer d-flex justify-content-between">
+        <button class="btn btn-info" (click)="editService(i)">Edit</button>
+        <button class="btn btn-danger" (click)="deleteService(service._id)">Delete</button>
+      </div>
+    </div>
+  </div>
+  

@@ -8,13 +8,13 @@ import { SlideService } from '../../../services/slide.service';
   styleUrls: ['./carousel.component.css']
 })
 export class CarouselComponent implements OnInit {
-  slides: any[] = [];
+   slides: any[] = [];
+   @Input() content:any
 
   constructor(private slideService: SlideService) {}
 
   ngOnInit() {
-    this.slideService.getSlides().subscribe(slides => {
-      this.slides = slides;
-    });
+      this.slides = this.content;
+      console.log(this.slides)
   }
 }
