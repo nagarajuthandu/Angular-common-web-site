@@ -7,7 +7,7 @@ import { Page } from '../models/page.model';
   providedIn: 'root',
 })
 export class PageService {
-  private staticServicesUrl = 'http://127.0.0.1:3000/page-settings'
+  private staticServicesUrl = 'http://127.0.0.1:3000/page'
 
   constructor(private http: HttpClient) {}
 

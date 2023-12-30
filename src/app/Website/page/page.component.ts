@@ -16,7 +16,7 @@ export class PageComponent {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.page = params.get('page')
       this.PageService.getPage(this.page).subscribe((pagesettings) => {
-      this.sections = pagesettings[0].widgets;
+      this.sections = pagesettings[0].WidgetContent;
     });
     })    
   }

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageComponent } from './Website/page/page.component';
-import { ProductCrudComponent } from './Admin/crud/product/product-crud.component';
 import { LoginComponent } from './Admin/login/login.component';
 import { AdminPageComponent } from './Admin/admin-page/admin-page.component';
 import { DashboardComponent } from './Admin/dashboard/dashboard.component';
@@ -21,10 +20,9 @@ const routes: Routes = [
     children: [
       { path: 'menu', component: MenuComponent },
       { path: 'create-page', component: CreatePageComponent },
-      { path: 'products', component: ProductCrudComponent },
       { path: 'login', component: LoginComponent },
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'services', component: ServiceCrudComponent },
+      { path: 'widgets/:widget', component: ServiceCrudComponent },
     ],
   },
 ];

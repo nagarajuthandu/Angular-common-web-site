@@ -1,30 +1,36 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {environment} from '../../environments/environment'
 
 @Injectable({
   providedIn: 'root'
 })
 export class OurService {
-  private servicesUrl = '/assets/data/our-servicess.json'; // Assuming the JSON file is in the assets folder
+
+  private serviceUrl = environment.apiUrl
 
   constructor(private http: HttpClient) {}
 
-  getServices(): Observable<any[]> {
-    return this.http.get<any[]>(this.servicesUrl);
+  getWidget(widget:any): Observable<any[]>{
+    return this.http.get<any[]>(`${this.serviceUrl}/widgets?type=${widget}`)
   }
 
-  private services: any[] = [];
-
-  addService(service: any): void {
-    this.services.push(service);
+  getServices(widgetId:any): Observable<any[]> {
+    return this.http.get<any[]>(`${this.serviceUrl}/widget-content?widget=${widgetId}`);
   }
 
-  updateService(index: number, service: any): void {
-    this.services[index] = service;
+  addService(service: any): Observable<any> {
+    return this.http.post<any>(`${this.serviceUrl}/widget-content`, service);
   }
 
-  deleteService(index: number): void {
-    this.services.splice(index, 1);
+  updateService(serviceId: string, updatedService: any): Observable<any> {
+    const url = `${this.serviceUrl}/widget-content/${serviceId}`;
+    return this.http.put<any>(url, updatedService);
+  }
+
+  deleteService(serviceId: string): Observable<any> {
+    const url = `${this.serviceUrl}/widget-content/${serviceId}`;
+    return this.http.delete<any>(url);
   }
 }

@@ -22,7 +22,7 @@ export class CreatePageComponent implements OnInit{
   }
 
   onSubmit(): void {
-    this.newPage.widgets=this.selectedWidgets
+    this.newPage.WidgetContent=this.selectedWidgets
     if(this.isEditMode)
     {
       this.pageService.updatePage(this.newPage._id,this.newPage).subscribe(
@@ -44,7 +44,7 @@ export class CreatePageComponent implements OnInit{
   }
 
   loadWidgets(): void {
-    this.widgetService.getWidgets().subscribe(
+    this.widgetService.getWidgetsWithContent().subscribe(
       (widgets) => {
         this.widgetOptions = widgets;
       },
@@ -66,7 +66,7 @@ export class CreatePageComponent implements OnInit{
   }
 
   onDeletePage(page: any): void {
-    this.pageService.deletePage(page._id).subscribe(()=>{
+    this.pageService.deletePage(page).subscribe(()=>{
       this.loadWidgets();
       this.loadPages();
     })
@@ -89,6 +89,6 @@ export class CreatePageComponent implements OnInit{
 
   getWidgetType(widgetId: string): string {
     const widget = this.widgetOptions.find((w:any) => w._id === widgetId);
-    return widget ? widget.type : '';
+    return widget ? `${widget.widget.type}-${widget.content.title}`  : '';
   }
 }

@@ -1,9 +1,7 @@
-// service-crud.component.ts
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { OurService } from '../../../services/our-service.service';
-import { SessionService } from 'src/app/services/session.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -15,12 +13,15 @@ export class ServiceCrudComponent implements OnInit {
   serviceForm: FormGroup;
   editedIndex: number | null = null;
   showForm: boolean = false;
+  widgetId: any;
+  widget:any;
 
   constructor(
     private serviceService: OurService,
     private fb: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute,
   ) {
     this.serviceForm = this.fb.group({
       title: [''],
@@ -33,9 +34,21 @@ export class ServiceCrudComponent implements OnInit {
     if (!this.authService.isAuthenticated) {
       this.router.navigate(['/admin/login']);
     }
-    this.serviceService.getServices().subscribe((services) => {
-      this.services = services;
-    });
+    this.loadServices();
+  }
+
+  loadServices(): void {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.widget = params.get('widget')
+      console.log(this.widget)
+      this.serviceService.getWidget(this.widget).subscribe((widget) => {
+        this.widgetId = widget[0]._id;
+        this.serviceService.getServices(this.widgetId).subscribe((services) => {
+          this.services = services;
+        });
+      });
+    })    
+   
   }
 
   openForm(): void {
@@ -49,27 +62,37 @@ export class ServiceCrudComponent implements OnInit {
   }
 
   addService(): void {
-    const newService = this.serviceForm.value;
-    this.serviceService.addService(newService);
-    this.closeForm();
-  }
-
-  editService(index: number): void {
-    const service = this.services[index];
-    this.serviceForm.patchValue(service);
-    this.editedIndex = index;
-    this.openForm();
+    let widgetContent: any = {};
+    widgetContent.widget = this.widgetId;
+    widgetContent.content = this.serviceForm.value;
+    this.serviceService.addService(widgetContent).subscribe(() => {
+      this.loadServices();
+      this.closeForm();
+    });
   }
 
   updateService(): void {
     if (this.editedIndex !== null) {
-      const updatedService = this.serviceForm.value;
-      this.serviceService.updateService(this.editedIndex, updatedService);
-      this.closeForm();
+      let updatedService = this.services[this.editedIndex]
+      const serviceId = this.services[this.editedIndex]._id;
+      updatedService.content = this.serviceForm.value;
+      this.serviceService.updateService(serviceId, updatedService).subscribe(() => {
+        this.loadServices();
+        this.closeForm();
+      });
     }
   }
 
-  deleteService(index: number): void {
-    this.serviceService.deleteService(index);
+  deleteService(serviceId: string): void {
+    this.serviceService.deleteService(serviceId).subscribe(() => {
+      this.loadServices();
+    });
+  }
+
+  editService(index: number): void {
+    const service = this.services[index];
+    this.serviceForm.patchValue(service.content);
+    this.editedIndex = index;
+    this.openForm();
   }
 }

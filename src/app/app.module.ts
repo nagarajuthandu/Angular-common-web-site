@@ -15,7 +15,6 @@ import { TopBarComponent } from './Website/top-bar/top-bar.component';
 import { FooterComponent } from './Website/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PageComponent } from './Website/page/page.component';
-import { ProductCrudComponent } from './Admin/crud/product/product-crud.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './Admin/login/login.component';
 import { FormsModule } from '@angular/forms'
@@ -43,7 +42,6 @@ import { CreatePageComponent } from './Admin/create-page/create-page.component';
     TopBarComponent,
     FooterComponent,
     PageComponent,
-    ProductCrudComponent,
     LoginComponent,
     AdminPageComponent,
     LeftNavComponent,

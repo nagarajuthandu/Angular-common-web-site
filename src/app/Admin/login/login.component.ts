@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit{
     this.authService.login(this.credentials).subscribe(() => {
       this.authService.isAuthenticated()
       {
-        this.router.navigate(['/admin/products']);
+        this.router.navigate(['/admin/dashboard']);
       }
     });
   }

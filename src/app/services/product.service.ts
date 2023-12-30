@@ -6,25 +6,25 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductService {
-  private productUrl = '/assets/data/products.json';
+  private widgetsUrl = 'http://127.0.0.1:3000/widgets';
 
   constructor(private http: HttpClient) {}
 
   getProducts(): Observable<any[]> {
-    return this.http.get<any[]>(this.productUrl);
+    return this.http.get<any[]>(this.widgetsUrl);
   }
 
-  private products: any[] = [];
-
-  addProduct(product: any): void {
-    this.products.push(product);
+  addProducts(widgetData: any): Observable<any> {
+    return this.http.post<any>(this.widgetsUrl, widgetData);
   }
 
-  updateProduct(index: number, product: any): void {
-    this.products[index] = product;
+  updateProducts(widgetId: string, updatedWidgetData: any): Observable<any> {
+    const url = `${this.widgetsUrl}/${widgetId}`;
+    return this.http.put<any>(url, updatedWidgetData);
   }
 
-  deleteProduct(index: number): void {
-    this.products.splice(index, 1);
+  deleteService(widgetId: string): Observable<any> {
+    const url = `${this.widgetsUrl}/${widgetId}`;
+    return this.http.delete<any>(url);
   }
 }
