@@ -10,7 +10,8 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./slider-widget-crud.component.css']
 })
 export class SliderWidgetCrudComponent implements OnInit {
-  services: any[] = [];
+  services: any;
+  contents:any[]=[];
   serviceForm: FormGroup;
   editedIndex: number | null = null;
   showForm: boolean = false;
@@ -41,11 +42,11 @@ export class SliderWidgetCrudComponent implements OnInit {
   loadServices(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.widget = params.get('widget');
-      console.log(this.widget)
       this.serviceService.getWidget(this.widget).subscribe((widget) => {
         this.widgetId = widget[0]._id;
         this.serviceService.getServices(this.widgetId).subscribe((services) => {
-          this.services = services;
+          this.services = services[0];
+          this.contents=this.services.content
         });
       });
     });
@@ -62,36 +63,53 @@ export class SliderWidgetCrudComponent implements OnInit {
   }
 
   addService(): void {
-    let widgetContent: any = {};
-    widgetContent.widget = this.widgetId;
-    widgetContent.content = this.serviceForm.value;
+    const widgetContent: any = {
+      widget: this.widgetId,
+      content: [this.serviceForm.value]
+    };
     this.serviceService.addService(widgetContent).subscribe(() => {
       this.loadServices();
       this.closeForm();
     });
   }
 
+  addSlide(): void {
+      this.contents.push(this.serviceForm.value);
+      const widgetContent: any = {
+        widget: this.widgetId,
+        content: this.contents
+      };
+      this.serviceService.updateService(this.services._id, widgetContent).subscribe(() => {
+        this.loadServices();
+        this.closeForm();
+      });
+    
+  }
+
   updateService(): void {
     if (this.editedIndex !== null) {
-      let updatedService = this.services[this.editedIndex]
-      const serviceId = this.services[this.editedIndex]._id;
-      updatedService.content = this.serviceForm.value;
-      this.serviceService.updateService(serviceId, updatedService).subscribe(() => {
+      this.contents[this.editedIndex]=this.serviceForm.value;
+      const widgetContent: any = {
+        widget: this.widgetId,
+        content: this.contents
+      };
+      this.serviceService.updateService(this.services._id, widgetContent).subscribe(() => {
         this.loadServices();
         this.closeForm();
       });
     }
   }
 
-  deleteService(serviceId: string): void {
-    this.serviceService.deleteService(serviceId).subscribe(() => {
-      this.loadServices();
-    });
+  deleteService(serviceId: number): void {
+    // this.contents.splice(this.editedIndex,1)
+    // this.serviceService.deleteService(serviceId).subscribe(() => {
+    //   this.loadServices();
+    // });
   }
 
   editService(index: number): void {
-    const service = this.services[index];
-    this.serviceForm.patchValue(service.content);
+    const content = this.contents[index];
+    this.serviceForm.patchValue(content);
     this.editedIndex = index;
     this.openForm();
   }

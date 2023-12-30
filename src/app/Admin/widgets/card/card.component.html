@@ -21,13 +21,13 @@
     </form>
   </div>
   
-  <div class="flex-wrap justify-content-center" *ngIf="!showForm">
+  <div class="" *ngIf="!showForm">
   
     <div class="mb-3">
       <button class="btn btn-primary" (click)="openForm()">Add Card</button>
     </div>
-  
-    <div class="service-item card m-2 d-flex flex-column" *ngFor="let service of services; let i = index">
+    <div class="d-flex gap-2">
+    <div class="service-item card p-2 d-flex flex-column" *ngFor="let service of services; let i = index">
       <div class="card-body">
         <img [src]="service.content.image" alt="{{ service.content.title }}" class="img-fluid" width="100">
       </div>
@@ -40,5 +40,6 @@
         <button class="btn btn-danger" (click)="deleteService(service._id)">Delete</button>
       </div>
     </div>
+  </div>
   </div>
   

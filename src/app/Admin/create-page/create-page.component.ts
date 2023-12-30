@@ -74,8 +74,9 @@ export class CreatePageComponent implements OnInit{
 
   onEditPage(page: any) {
     this.newPage = page
-    const widgets= page.widgets.map((m:any) =>m._id)
+    const widgets= page.WidgetContent.map((m:any) =>m._id)
     this.selectedWidgets=widgets
+    console.log(this.selectedWidgets)
     this.isEditMode = true;
   }
 
@@ -89,6 +90,6 @@ export class CreatePageComponent implements OnInit{
 
   getWidgetType(widgetId: string): string {
     const widget = this.widgetOptions.find((w:any) => w._id === widgetId);
-    return widget ? `${widget.widget.type}-${widget.content.title}`  : '';
+    return widget ? `${widget.widget.type} ${widget?.content?.title ?? ''}`  : '';
   }
 }

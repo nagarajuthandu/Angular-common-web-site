@@ -1,5 +1,5 @@
 <div class="flex-container">
-<div *ngFor="let section of contentSections" class="flex-item" [ngClass]="section.class">
+  <div *ngFor="let section of contentSections" [ngClass]="section.widget.class" class="flex-item">
     <ng-container [ngSwitch]="section.widget.type">
       <!-- basic -->
       <app-heading *ngSwitchCase="'heading'" [content]="section.content"></app-heading>
@@ -9,11 +9,8 @@
 
       <!-- derived -->
       <app-carousel *ngSwitchCase="'carousel'" [content]="section.content"></app-carousel>
-      <app-product-list *ngSwitchCase="'products'"></app-product-list>
-      <app-services-list *ngSwitchCase="'services'" [content]="section.content"></app-services-list>
+      <app-services-list *ngSwitchCase="'card'" [content]="section.content"></app-services-list>
       <app-contact-form *ngSwitchCase="'contactform'"></app-contact-form>
     </ng-container>
+  </div>
 </div>
-</div>
-
-  

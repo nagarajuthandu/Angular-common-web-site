@@ -15,6 +15,5 @@ export class CarouselComponent implements OnInit {
 
   ngOnInit() {
       this.slides = this.content;
-      console.log(this.slides)
   }
 }
