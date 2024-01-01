@@ -10,6 +10,7 @@ export class ServicesListComponent implements OnInit{
   @Input() content: any[] = [];
   services:any = this.content
   ngOnInit(): void {
+    console.log(this.content)
     this.services = this.content
   }
  

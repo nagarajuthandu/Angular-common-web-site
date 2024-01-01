@@ -1,8 +1,9 @@
-      <div class="card d-flex">
-        <img [src]="services.image" class="card-img-top" [alt]="services.title + ' Service'">
-        <div class="card-body">
-          <h5 class="card-title">{{ services.title }}</h5>
-          <p class="card-text">{{ services.description }}</p>
-        </div>
-      </div>
-
+<div class="d-flex p-2">
+  <div *ngFor="let service of content" class="card mx-2">
+    <img [src]="service.image" class="card-img-top" [alt]="service.title + ' Service'">
+    <div class="card-body">
+      <h5 class="card-title">{{ service.title }}</h5>
+      <p class="card-text">{{ service.description }}</p>
+    </div>
+  </div>
+</div>
