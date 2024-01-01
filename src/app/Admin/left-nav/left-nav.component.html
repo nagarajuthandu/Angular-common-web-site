@@ -5,9 +5,9 @@
     <li><a routerLink="/admin/menu">Add Page to Menu</a></li>
     <li>
       <a routerLink="/admin/widgets">Widgets</a>
-      <ul>
+      <ul *ngIf="widgets.length > 0">
         <li *ngFor="let widget of widgets">
-          <a [routerLink]="['/admin/widgets', widget.widget.type]">{{ widget.widget.type }}</a>
+          <a [routerLink]="['/admin/widgets', widget.widget.displayName]">{{ widget.widget.displayName }} {{widget.title}}</a>
         </li>
       </ul>
     </li>

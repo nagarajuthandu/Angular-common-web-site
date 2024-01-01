@@ -90,6 +90,6 @@ export class CreatePageComponent implements OnInit{
 
   getWidgetType(widgetId: string): string {
     const widget = this.widgetOptions.find((w:any) => w._id === widgetId);
-    return widget ? `${widget.widget.type} ${widget?.content?.title ?? ''}`  : '';
+    return widget ? `${widget.widget.displayName} ${widget?.title ?? ''}`  : '';
   }
 }

@@ -14,7 +14,7 @@
     <div class="form-item">
       <label for="widgetSelector" class="form-label">Select Widgets:</label>
       <select id="widgetSelector" [(ngModel)]="selectedWidgets" name="widgetSelector" class="form-select" multiple>
-        <option *ngFor="let widget of widgetOptions" [value]="widget._id">{{ widget.widget.type }}  {{ widget.content.title }}</option>
+        <option *ngFor="let widget of widgetOptions" [value]="widget._id">{{ widget.widget.displayName }}  {{ widget.title }}</option>
       </select>
     </div>
     <div class="form-item">
@@ -42,7 +42,7 @@
     <div *ngFor="let page of pages" class="page-item">
       <div class="page-name">{{ page.displayName }}</div>
         <div *ngFor="let content of  page.WidgetContent">
-            <span>{{content.widget.type}}</span>
+            <span>{{content.widget.displayName}} {{content.title}}</span>
         </div>
       <div class="action-buttons d-flex gap-2">
         <button class="btn btn-info" (click)="onEditPage(page)">Edit</button>

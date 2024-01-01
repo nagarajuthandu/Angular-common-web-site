@@ -1,8 +1,20 @@
 <h2>Widgets Dashboard</h2>
+<div class="widget-container">
+  <div *ngFor="let widget of widgets" class="widget-card">
+    <div class="widget-info">
+      <p>{{ widget.displayName }}</p>
+      <label for="title">Title:</label>
+      <input type="text" id="title" [(ngModel)]="widget.title" name="title" class="form-control" required>
+    </div>
+    <button (click)="addToMyWebsite(widget)">Add to Widget</button>
+  </div>
+</div>
 
-<ul>
-  <li *ngFor="let widget of widgets">
-    {{ widget.type }}
-    <button (click)="addToMyWebsite(widget)">Add to My Website</button>
-  </li>
-</ul>
+<div *ngIf="addedWidgets.length > 0" class="added-widgets">
+  <h3>Added Widgets</h3>
+  <ul>
+    <li *ngFor="let addedWidget of addedWidgets">{{ addedWidget.widget.displayName }} - {{ addedWidget.title }}
+    <button (click)="deleteAddedWidget(addedWidget._id)">Delete</button>
+    </li>
+  </ul>
+</div>

@@ -8,15 +8,18 @@ import { WidgetServiceService } from '../../../services/widget-service.service';
 })
 export class WidgetsDashboardComponent implements OnInit {
   widgets: any[] = [];
+  title:any
+  addedWidgets:any=[]
 
-  constructor(private ourService: WidgetServiceService) {}
+  constructor(private widgetServiceService: WidgetServiceService) {}
 
   ngOnInit() {
     this.loadWidgets();
+    this.loadWidgetsContent()
   }
 
   loadWidgets() {
-    this.ourService.getAllWidget().subscribe(widgets => {
+    this.widgetServiceService.getAllWidget().subscribe(widgets => {
       this.widgets = widgets;
     });
   }
@@ -24,7 +27,22 @@ export class WidgetsDashboardComponent implements OnInit {
   addToMyWebsite(widget: any) {
     let widgetContent: any = {};
     widgetContent.widget = widget._id;
+    widgetContent.title = widget.title
     widgetContent.content = [];
-    this.ourService.addService(widgetContent).subscribe();
+    this.widgetServiceService.addService(widgetContent).subscribe(()=>{
+      this.loadWidgetsContent()
+    });
+  }
+
+  loadWidgetsContent() {
+    this.widgetServiceService.getAllWidgetsContent().subscribe(widgets => {
+      this.addedWidgets = widgets;
+    });
+  }
+
+  deleteAddedWidget(id:any){
+    this.widgetServiceService.deleteService(id).subscribe(()=>{
+      this.loadWidgetsContent()
+    })
   }
 }
