@@ -12,6 +12,14 @@ export class OurService {
 
   constructor(private http: HttpClient) {}
 
+  getAllWidget(): Observable<any[]>{
+    return this.http.get<any[]>(`${this.serviceUrl}/widgets`)
+  }
+
+  getAllWidgetsContent(): Observable<any[]>{
+    return this.http.get<any[]>(`${this.serviceUrl}/widget-content`)
+  }
+
   getWidget(widget:any): Observable<any[]>{
     return this.http.get<any[]>(`${this.serviceUrl}/widgets?type=${widget}`)
   }

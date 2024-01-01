@@ -7,6 +7,7 @@ import { DashboardComponent } from './Admin/dashboard/dashboard.component';
 import { MenuComponent } from './Admin/menu/menu.component';
 import { CreatePageComponent } from './Admin/create-page/create-page.component';
 import { WidgetsCrudPageComponent } from './Admin/widgets/widgets-crud-page/widgets-crud-page.component';
+import { WidgetsDashboardComponent } from './Admin/widgets/widgets-dashboard/widgets-dashboard.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -22,6 +23,7 @@ const routes: Routes = [
       { path: 'create-page', component: CreatePageComponent },
       { path: 'login', component: LoginComponent },
       { path: 'dashboard', component: DashboardComponent },
+      { path: 'widgets', component: WidgetsDashboardComponent },
       { path: 'widgets/:widget', component: WidgetsCrudPageComponent },
     ],
   },

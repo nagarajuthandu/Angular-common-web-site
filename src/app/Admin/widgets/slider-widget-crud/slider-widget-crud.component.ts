@@ -100,11 +100,16 @@ export class SliderWidgetCrudComponent implements OnInit {
     }
   }
 
-  deleteService(serviceId: number): void {
-    // this.contents.splice(this.editedIndex,1)
-    // this.serviceService.deleteService(serviceId).subscribe(() => {
-    //   this.loadServices();
-    // });
+  deleteService(serviceId: any): void {
+    this.contents.splice(serviceId, 1);
+    const widgetContent: any = {
+      widget: this.widgetId,
+      content: this.contents
+    };
+    this.serviceService.updateService(this.services._id, widgetContent).subscribe(() => {
+      this.loadServices();
+      this.closeForm();
+    });
   }
 
   editService(index: number): void {

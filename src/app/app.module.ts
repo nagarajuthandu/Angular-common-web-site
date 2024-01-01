@@ -33,6 +33,7 @@ import { CreatePageComponent } from './Admin/create-page/create-page.component';
 import { CardComponent } from './Admin/widgets/card/card.component';
 import { WidgetsCrudPageComponent } from './Admin/widgets/widgets-crud-page/widgets-crud-page.component';
 import { SliderWidgetCrudComponent } from './Admin/widgets/slider-widget-crud/slider-widget-crud.component';
+import { WidgetsDashboardComponent } from './Admin/widgets/widgets-dashboard/widgets-dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,7 +59,8 @@ import { SliderWidgetCrudComponent } from './Admin/widgets/slider-widget-crud/sl
     CreatePageComponent,
     CardComponent,
     WidgetsCrudPageComponent,
-    SliderWidgetCrudComponent
+    SliderWidgetCrudComponent,
+    WidgetsDashboardComponent
   ],
   imports: [
     BrowserModule,

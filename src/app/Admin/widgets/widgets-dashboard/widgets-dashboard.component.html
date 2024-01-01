@@ -1,0 +1,8 @@
+<h2>Widgets Dashboard</h2>
+
+<ul>
+  <li *ngFor="let widget of widgets">
+    {{ widget.type }}
+    <button (click)="addToMyWebsite(widget)">Add to My Website</button>
+  </li>
+</ul>

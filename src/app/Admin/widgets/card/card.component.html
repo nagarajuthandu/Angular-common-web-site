@@ -14,7 +14,7 @@
       </div>
   
       <div class="form-group">
-        <button *ngIf="editedIndex === null" class="btn btn-success" (click)="addService()">Add Service</button>
+        <button *ngIf="editedIndex === null" class="btn btn-success" (click)="addCard()">Add Service</button>
         <button *ngIf="editedIndex !== null" class="btn btn-info" (click)="updateService()">Update Service</button>
         <button class="btn btn-secondary" (click)="closeForm()">Cancel</button>
       </div>
@@ -27,17 +27,17 @@
       <button class="btn btn-primary" (click)="openForm()">Add Card</button>
     </div>
     <div class="d-flex gap-2">
-    <div class="service-item card p-2 d-flex flex-column" *ngFor="let service of services; let i = index">
+    <div class="service-item card p-2 d-flex flex-column" *ngFor="let content of contents; let i = index">
       <div class="card-body">
-        <img [src]="service.content.image" alt="{{ service.content.title }}" class="img-fluid" width="100">
+        <img [src]="content.image" alt="{{ content.title }}" class="img-fluid" width="100">
       </div>
       <div class="card-body flex-grow-1">
-        <h3 class="card-title">{{ service.content.title }}</h3>
-        <p class="card-text">{{ service.content.description }}</p>
+        <h3 class="card-title">{{ content.title }}</h3>
+        <p class="card-text">{{ content.description }}</p>
       </div>
       <div class="card-footer d-flex justify-content-between">
         <button class="btn btn-info" (click)="editService(i)">Edit</button>
-        <button class="btn btn-danger" (click)="deleteService(service._id)">Delete</button>
+        <button class="btn btn-danger" (click)="deleteService(i)">Delete</button>
       </div>
     </div>
   </div>
