@@ -7,10 +7,24 @@
     </div>
 
     <div class="form-item">
+      <label for="pageName" class="form-label">Display Name:</label>
+      <input type="text" id="displayName" [(ngModel)]="newPage.displayName" name="displayName" class="form-control" required>
+    </div>
+
+    <div class="form-item">
       <label for="widgetSelector" class="form-label">Select Widgets:</label>
       <select id="widgetSelector" [(ngModel)]="selectedWidgets" name="widgetSelector" class="form-select" multiple>
         <option *ngFor="let widget of widgetOptions" [value]="widget._id">{{ widget.widget.type }}  {{ widget.content.title }}</option>
       </select>
+    </div>
+    <div class="form-item">
+      <!-- Display selected widgets -->
+        <div *ngIf="selectedWidgets.length > 0" class="selected-widgets-container">
+          <h3>Selected Widgets:</h3>
+          <ul>
+            <li *ngFor="let selectedWidget of selectedWidgets">{{ getWidgetType(selectedWidget) }}</li>
+          </ul>
+        </div>
     </div>
 
     <div class="form-item d-flex gap-2">
@@ -19,20 +33,17 @@
     </div>
   </form>
 
-  <!-- Display selected widgets -->
-  <div *ngIf="selectedWidgets.length > 0" class="selected-widgets-container">
-    <h3>Selected Widgets:</h3>
-    <ul>
-      <li *ngFor="let selectedWidget of selectedWidgets">{{ getWidgetType(selectedWidget) }}</li>
-    </ul>
-  </div>
+  
 </div>
 
 <div class="page-list">
   <h2>Created Pages</h2>
   <div class="page-grid">
     <div *ngFor="let page of pages" class="page-item">
-      <div class="page-name">{{ page.pagename }}</div>
+      <div class="page-name">{{ page.displayName }}</div>
+        <div *ngFor="let content of  page.WidgetContent">
+            <span>{{content.widget.type}}</span>
+        </div>
       <div class="action-buttons d-flex gap-2">
         <button class="btn btn-info" (click)="onEditPage(page)">Edit</button>
         <button class="btn btn-danger" (click)="onDeletePage(page._id)">Delete</button>
