@@ -1,0 +1,5 @@
+<ng-container [ngSwitch]="widget">
+    <app-card-widget *ngSwitchCase="'card'" [widget]="widget"></app-card-widget>
+    <app-slider-widget *ngSwitchCase="'carousel'" [widget]="widget"></app-slider-widget>
+  </ng-container>
+  

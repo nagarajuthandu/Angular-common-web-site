@@ -6,7 +6,7 @@ import { AdminPageComponent } from './Admin/admin-page/admin-page.component';
 import { DashboardComponent } from './Admin/dashboard/dashboard.component';
 import { MenuComponent } from './Admin/menu/menu.component';
 import { CreatePageComponent } from './Admin/create-page/create-page.component';
-import { WidgetsCrudPageComponent } from './Admin/widgets/widgets-crud-page/widgets-crud-page.component';
+import { AdminWidgetsPageComponent } from './Admin/widgets/admin-widgets-page/admin-widgets-page.component';
 import { WidgetsDashboardComponent } from './Admin/widgets/widgets-dashboard/widgets-dashboard.component';
 
 const routes: Routes = [
@@ -24,7 +24,7 @@ const routes: Routes = [
       { path: 'login', component: LoginComponent },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'widgets', component: WidgetsDashboardComponent },
-      { path: 'widgets/:widget', component: WidgetsCrudPageComponent },
+      { path: 'widgets/:widget', component: AdminWidgetsPageComponent },
     ],
   },
 ];

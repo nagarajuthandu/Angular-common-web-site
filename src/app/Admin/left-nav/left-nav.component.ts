@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OurService } from 'src/app/services/our-service.service';
+import { WidgetServiceService } from '../../services/widget-service.service';
 
 @Component({
   selector: 'app-left-nav',
@@ -9,13 +9,13 @@ import { OurService } from 'src/app/services/our-service.service';
 export class LeftNavComponent implements OnInit{
   widgets: any[] = [];
 
-  constructor(private ourService: OurService) {}
+  constructor(private widgetServiceService: WidgetServiceService) {}
   ngOnInit() {
     this.loadWidgets();
   }
 
   loadWidgets() {
-    this.ourService.getAllWidgetsContent().subscribe(widgets => {
+    this.widgetServiceService.getAllWidgetsContent().subscribe(widgets => {
       this.widgets = widgets;
     });
   }

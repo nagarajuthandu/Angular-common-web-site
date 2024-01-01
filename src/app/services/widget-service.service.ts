@@ -6,7 +6,7 @@ import {environment} from '../../environments/environment'
 @Injectable({
   providedIn: 'root'
 })
-export class OurService {
+export class WidgetServiceService {
 
   private serviceUrl = environment.apiUrl
 

@@ -1,15 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { OurService } from '../../../services/our-service.service';
+import { WidgetServiceService } from '../../../services/widget-service.service';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.css']
+  selector: 'app-card-widget',
+  templateUrl: './card-widget.component.html',
+  styleUrls: ['./card-widget.component.css']
 })
-export class CardComponent {
+export class CardWidgetComponent {
   services: any;
   contents:any[]=[];
   serviceForm: FormGroup;
@@ -19,7 +19,7 @@ export class CardComponent {
   @Input() widget:any;
 
   constructor(
-    private serviceService: OurService,
+    private serviceService: WidgetServiceService,
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,

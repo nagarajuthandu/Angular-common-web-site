@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OurService } from '../../../services/our-service.service';
+import { WidgetServiceService } from '../../../services/widget-service.service';
 
 @Component({
   selector: 'app-widgets-dashboard',
@@ -9,7 +9,7 @@ import { OurService } from '../../../services/our-service.service';
 export class WidgetsDashboardComponent implements OnInit {
   widgets: any[] = [];
 
-  constructor(private ourService: OurService) {}
+  constructor(private ourService: WidgetServiceService) {}
 
   ngOnInit() {
     this.loadWidgets();

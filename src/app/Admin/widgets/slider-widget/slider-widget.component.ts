@@ -1,15 +1,15 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { OurService } from '../../../services/our-service.service';
+import { WidgetServiceService } from '../../../services/widget-service.service';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-slider-widget-crud',
-  templateUrl: './slider-widget-crud.component.html',
-  styleUrls: ['./slider-widget-crud.component.css']
+  selector: 'app-slider-widget',
+  templateUrl: './slider-widget.component.html',
+  styleUrls: ['./slider-widget.component.css']
 })
-export class SliderWidgetCrudComponent implements OnInit {
+export class SliderWidgetComponent implements OnInit {
   services: any;
   contents:any[]=[];
   serviceForm: FormGroup;
@@ -19,7 +19,7 @@ export class SliderWidgetCrudComponent implements OnInit {
   @Input()  widget: any;
 
   constructor(
-    private serviceService: OurService,
+    private serviceService: WidgetServiceService,
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,

@@ -3,13 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ServicesListComponent } from './widgets/derived/services-list/services.component';
+import { CardsListComponent } from './widgets/derived/cards-list/cards-list.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { NavigationComponent } from './Website/navigation/navigation.component';
 import { CarouselComponent } from './widgets/derived/carousel/carousel.component';
-import { ProductListComponent } from './widgets/derived/products-list/product-list.component';
 import { TopBarComponent } from './Website/top-bar/top-bar.component';
 import { FooterComponent } from './Website/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -30,17 +29,16 @@ import { ImageComponent } from './widgets/basic/image/image.component';
 import { ContactFormComponent } from './widgets/derived/contact-form/contact-form.component';
 import { MenuComponent } from './Admin/menu/menu.component';
 import { CreatePageComponent } from './Admin/create-page/create-page.component';
-import { CardComponent } from './Admin/widgets/card/card.component';
-import { WidgetsCrudPageComponent } from './Admin/widgets/widgets-crud-page/widgets-crud-page.component';
-import { SliderWidgetCrudComponent } from './Admin/widgets/slider-widget-crud/slider-widget-crud.component';
+import { CardWidgetComponent } from './Admin/widgets/card-widget/card-widget.component';
+import { AdminWidgetsPageComponent } from './Admin/widgets/admin-widgets-page/admin-widgets-page.component';
+import { SliderWidgetComponent } from './Admin/widgets/slider-widget/slider-widget.component';
 import { WidgetsDashboardComponent } from './Admin/widgets/widgets-dashboard/widgets-dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ServicesListComponent,
+    CardsListComponent,
     NavigationComponent,
     CarouselComponent,
-    ProductListComponent,
     TopBarComponent,
     FooterComponent,
     PageComponent,
@@ -57,9 +55,9 @@ import { WidgetsDashboardComponent } from './Admin/widgets/widgets-dashboard/wid
     ContactFormComponent,
     MenuComponent,
     CreatePageComponent,
-    CardComponent,
-    WidgetsCrudPageComponent,
-    SliderWidgetCrudComponent,
+    CardWidgetComponent,
+    AdminWidgetsPageComponent,
+    SliderWidgetComponent,
     WidgetsDashboardComponent
   ],
   imports: [
