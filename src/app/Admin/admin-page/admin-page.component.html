@@ -1,6 +1,6 @@
 <div class="admin-container">
-    <div class="app-left-nav" *ngIf="authService.isAuthenticated()">
-    <app-left-nav></app-left-nav>
+    <div class="app-admin-left-side-nav" *ngIf="authService.isAuthenticated()">
+    <app-admin-left-side-nav></app-admin-left-side-nav>
     </div>
     <div class="content">
       <router-outlet></router-outlet>

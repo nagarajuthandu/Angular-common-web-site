@@ -9,14 +9,14 @@ import { PageService } from '../../services/page.service';
 })
 export class PageComponent {
   page: any = '';
-  sections:any = [];
+  WidgetContent:any = [];
 
   constructor(private route: ActivatedRoute, private PageService: PageService) {}
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.page = params.get('page')
       this.PageService.getPage(this.page).subscribe((pagesettings) => {
-      this.sections = pagesettings[0].WidgetContent;
+      this.WidgetContent = pagesettings[0].WidgetContent;
     });
     })    
   }

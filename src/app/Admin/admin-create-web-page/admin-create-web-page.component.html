@@ -1,0 +1,63 @@
+<button *ngIf="!isCreateNew" class="btn btn-info" (click)="addNewPage()">Add New Page</button>
+
+<div *ngIf="pages.length === 0 || isCreateNew || isEditMode" class="create-page-container">
+  <h2>Create or Update Page</h2>
+  <form (ngSubmit)="onSubmit()" class="form-container">
+    <div class="form-item">
+      <label for="pageName" class="form-label">Page Name:</label>
+      <input type="text" id="pageName" [(ngModel)]="newPage.pagename" name="pageName" class="form-control" required>
+    </div>
+
+    <div class="form-item">
+      <label for="pageName" class="form-label">Display Name:</label>
+      <input type="text" id="displayName" [(ngModel)]="newPage.displayName" name="displayName" class="form-control" required>
+    </div>
+
+    <div class="form-item">
+      <label for="widgetSelector" class="form-label">Select Widgets:</label>
+      <select id="widgetSelector" [(ngModel)]="selectedWidgets" name="widgetSelector" class="form-select" multiple>
+        <option *ngFor="let widget of widgetOptions" [value]="widget._id">{{ widget.widget.displayName }}  {{ widget.title }}</option>
+      </select>
+    </div>
+    <div class="form-item">
+      <!-- Display selected widgets -->
+        <div *ngIf="selectedWidgets.length > 0" class="selected-widgets-container">
+          <h3>Selected Widgets:</h3>
+          <ul>
+            <li *ngFor="let selectedWidget of selectedWidgets">{{ getWidgetType(selectedWidget) }}</li>
+          </ul>
+        </div>
+    </div>
+
+    <div class="form-item d-flex gap-2">
+      <button type="submit" class="btn btn-primary">{{ isEditMode ? 'Update Page' : 'Create Page' }}</button>
+      <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
+    </div>
+  </form>
+
+  
+</div>
+
+<div *ngIf="previewPage">
+  <h2>Privew Page</h2>
+  <button *ngIf="previewPage" type="button" class="btn btn-success" (click)="closePreviewForSelectedPage()">Close Preview</button>
+    <div>{{ previewPage.displayName }}</div>
+    <div *ngIf="previewPage.WidgetContent && previewPage.WidgetContent.length > 0">
+      <app-widgets-page [WidgetContent]="previewPage.WidgetContent"></app-widgets-page>
+    </div>
+</div>
+
+
+<div *ngIf="!previewPage" class="page-list">
+  <h2>Created Pages</h2>
+  <div class="page-grid">
+    <div *ngFor="let page of pages" class="page-item">
+      <div class="page-name">{{ page.displayName }}</div>
+      <div class="action-buttons d-flex gap-2">
+        <button class="btn btn-info" (click)="onEditPage(page)">Edit</button>
+        <button class="btn btn-danger" (click)="onDeletePage(page._id)">Delete</button>
+        <button type="button" class="btn btn-success" (click)="showPreviewForSelectedPage(page)">Preview</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 
-  <div *ngFor="let section of contentSections" [ngClass]="section.widget.class">
+  <div *ngFor="let section of WidgetContent" [ngClass]="section.widget.class">
     <ng-container [ngSwitch]="section.widget.type">
       <!-- basic -->
       <app-heading *ngSwitchCase="'heading'" [content]="section.content"></app-heading>
@@ -8,8 +8,8 @@
       <app-image *ngSwitchCase="'image'" [src]="section.src"></app-image>
 
       <!-- derived -->
-      <app-carousel *ngSwitchCase="'carousel'" [content]="section.content"></app-carousel>
-      <app-cards-list-list *ngSwitchCase="'card'" [content]="section.content"></app-cards-list-list>
+      <app-carousel *ngSwitchCase="'Carousel'" [content]="section.content"></app-carousel>
+      <app-cards *ngSwitchCase="'Cards'" [content]="section.content"></app-cards>
       <app-contact-form *ngSwitchCase="'contactform'"></app-contact-form>
     </ng-container>
   </div>

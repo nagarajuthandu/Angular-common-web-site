@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CardsListComponent } from './widgets/derived/cards-list/cards-list.component';
+import { CardsComponent } from './widgets/derived/cards/cards.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
@@ -14,12 +14,12 @@ import { FooterComponent } from './Website/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PageComponent } from './Website/page/page.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from './Admin/login/login.component';
+import { AdminLoginComponent } from './Admin/admin-login/admin-login.component';
 import { FormsModule } from '@angular/forms'
 import { SessionService } from './services/session.service';
 import { AdminPageComponent } from './Admin/admin-page/admin-page.component';
-import { LeftNavComponent } from './Admin/left-nav/left-nav.component';
-import { DashboardComponent } from './Admin/dashboard/dashboard.component';
+import { AdminLeftSideNavComponent } from './Admin/admin-left-side-nav/admin-left-side-nav.component';
+import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard.component';
 import { ToggleButtonComponent } from './widgets/basic/toggle-button/toggle-button.component';
 import { WidgetsPageComponent } from './widgets/widgets-page/widgets-page.component';
 import { ParagraphComponent } from './widgets/basic/paragraph/paragraph.component';
@@ -27,25 +27,25 @@ import { HeadingComponent } from './widgets/basic/heading/heading.component';
 import { SubHeadingComponent } from './widgets/basic/sub-heading/sub-heading.component';
 import { ImageComponent } from './widgets/basic/image/image.component';
 import { ContactFormComponent } from './widgets/derived/contact-form/contact-form.component';
-import { MenuComponent } from './Admin/menu/menu.component';
-import { CreatePageComponent } from './Admin/create-page/create-page.component';
-import { CardWidgetComponent } from './Admin/widgets/card-widget/card-widget.component';
-import { AdminWidgetsPageComponent } from './Admin/widgets/admin-widgets-page/admin-widgets-page.component';
-import { SliderWidgetComponent } from './Admin/widgets/slider-widget/slider-widget.component';
-import { WidgetsDashboardComponent } from './Admin/widgets/widgets-dashboard/widgets-dashboard.component';
+import { AdminAddPageToMenuComponent } from './Admin/admin-add-page-to-menu/admin-add-page-to-menu.component';
+import { AdminCreateWebPageComponent } from './Admin/admin-create-web-page/admin-create-web-page.component';
+import { AdminCardsWidgetComponent } from './Admin/widgets/admin-cards-widget/admin-cards-widget.component';
+import { AdminWidgetsSwitchPageComponent } from './Admin/widgets/admin-widgets-switch-page/admin-widgets-switch-page.component';
+import { AdminCarouselWidgetComponent } from './Admin/widgets/admin-carousel-widget/admin-carousel-widget.component';
+import { WidgetsDashboardComponent } from './Admin/widgets/admin-widgets-dashboard/widgets-dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
-    CardsListComponent,
+    CardsComponent,
     NavigationComponent,
     CarouselComponent,
     TopBarComponent,
     FooterComponent,
     PageComponent,
-    LoginComponent,
+    AdminLoginComponent,
     AdminPageComponent,
-    LeftNavComponent,
-    DashboardComponent,
+    AdminLeftSideNavComponent,
+    AdminDashboardComponent,
     ToggleButtonComponent,
     WidgetsPageComponent,
     ParagraphComponent,
@@ -53,11 +53,11 @@ import { WidgetsDashboardComponent } from './Admin/widgets/widgets-dashboard/wid
     SubHeadingComponent,
     ImageComponent,
     ContactFormComponent,
-    MenuComponent,
-    CreatePageComponent,
-    CardWidgetComponent,
-    AdminWidgetsPageComponent,
-    SliderWidgetComponent,
+    AdminAddPageToMenuComponent,
+    AdminCreateWebPageComponent,
+    AdminCardsWidgetComponent,
+    AdminWidgetsSwitchPageComponent,
+    AdminCarouselWidgetComponent,
     WidgetsDashboardComponent
   ],
   imports: [
