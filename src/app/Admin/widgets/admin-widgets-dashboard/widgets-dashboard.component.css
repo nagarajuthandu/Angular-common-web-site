@@ -1,8 +1,7 @@
 /* widgets-dashboard.component.css */
 
 .widget-container {
-  display: flex;
-  flex-wrap: wrap;
+ overflow-y: auto;
 }
 
 .widget-card {
@@ -31,4 +30,27 @@ button {
 
 button:hover {
   background-color: #45a049;
+}
+
+
+/* Add this to your component's CSS file or style section */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.card {
+  width: 200px; /* Set the desired width */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.btn-danger {
+  margin-top: 10px;
 }

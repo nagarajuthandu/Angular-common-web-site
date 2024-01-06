@@ -3,7 +3,7 @@
   <div class="form-group">
     <label for="pageSelector">Select a Page:</label>
     <select id="pageSelector" [(ngModel)]="selectedPage" name="pageSelector" class="form-control">
-      <option *ngFor="let page of pages" [value]="page.pagename">{{ page.pagename }}</option>
+      <option *ngFor="let page of pages" [value]="page._id">{{ page.displayName }}</option>
     </select>
   </div>
   <button class="btn btn-primary" (click)="onAddToMenu(selectedPage)">Add to Menu</button>

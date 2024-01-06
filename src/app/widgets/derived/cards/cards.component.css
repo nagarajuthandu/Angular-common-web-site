@@ -3,3 +3,14 @@
     height: 150px; /* Set your desired fixed height */
     object-fit: cover; /* Maintain aspect ratio and cover the container */
   }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+  }
+  
+  .grid-item {
+    margin-bottom: 16px;
+  }
+  

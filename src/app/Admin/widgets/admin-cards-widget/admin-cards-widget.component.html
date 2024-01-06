@@ -29,18 +29,23 @@
     <button class="btn btn-primary" (click)="openForm()">Add Card</button>
 </div>
 
-<div *ngIf="!showForm"  class="d-flex gap-2">
-  <div class="service-item card p-2 d-flex flex-column" *ngFor="let content of contents; let i = index">
-    <div class="card-body">
-      <img [src]="content.image" alt="{{ content.title }}" class="img-fluid" width="100" />
-    </div>
-    <div class="card-body flex-grow-1">
-      <h3 class="card-title">{{ content.title }}</h3>
-      <p class="card-text">{{ content.description }}</p>
-    </div>
-    <div class="card-footer d-flex justify-content-between">
-      <button class="btn btn-info" (click)="editService(i)">Edit</button>
-      <button class="btn btn-danger" (click)="deleteService(i)">Delete</button>
+<div *ngIf="!showForm">
+  <div class="grid-container">
+    <div *ngFor="let content of contents; let i = index" class="service-item">
+      <div class="card p-2 d-flex flex-column">
+        <div class="card-body">
+          <img [src]="content.image" alt="{{ content.title }}" class="img-fluid" width="100" />
+        </div>
+        <div class="card-body flex-grow-1">
+          <h3 class="card-title">{{ content.title }}</h3>
+          <p class="card-text">{{ content.description }}</p>
+        </div>
+        <div class="card-footer d-flex justify-content-between">
+          <button class="btn btn-info" (click)="editService(i)">Edit</button>
+          <button class="btn btn-danger" (click)="deleteService(i)">Delete</button>
+        </div>
+      </div>
     </div>
   </div>
+  
 </div>

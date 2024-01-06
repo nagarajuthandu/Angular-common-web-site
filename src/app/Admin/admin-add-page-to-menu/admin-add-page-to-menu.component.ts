@@ -10,7 +10,7 @@ import { MenuService } from 'src/app/services/menu.service';
 })
 export class AdminAddPageToMenuComponent implements OnInit {
   pages: any[] = [];
-  selectedPage: any;
+  selectedPage: any = {};
   menuItems:any[] = []
 
   constructor(private pageService: PageService, private menuService:MenuService) {}
@@ -31,10 +31,11 @@ export class AdminAddPageToMenuComponent implements OnInit {
     );
   }
 
-  onAddToMenu(label:any): void {
+  onAddToMenu(selectedPage:any): void {
     let menu:any = {}
-    menu.label=label
-    menu.link='/'+label
+    const page:any = this.pages.find((p:any)=>p._id === selectedPage)
+    menu.label=page.displayName
+    menu.link='/'+page.pagename
     this.menuService.createMenuItem(menu).subscribe(()=>{
       this.loadMenuItems();
     });
