@@ -8,8 +8,8 @@
       <app-image *ngSwitchCase="'image'" [src]="section.src"></app-image>
 
       <!-- derived -->
-      <app-carousel *ngSwitchCase="'Carousel'" [content]="section.content"></app-carousel>
-      <app-cards *ngSwitchCase="'Cards'" [content]="section.content"></app-cards>
+      <app-carousel *ngSwitchCase="'Carousel'" [content]="section.content" [isWebView] = true></app-carousel>
+      <app-cards *ngSwitchCase="'Cards'" [content]="section.content" [isWebView] = true></app-cards>
       <app-contact-form *ngSwitchCase="'contactform'"></app-contact-form>
     </ng-container>
   </div>

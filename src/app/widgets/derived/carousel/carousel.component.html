@@ -1,4 +1,4 @@
-<div id="carouselExampleCaptions" class="carousel slide">
+<div *ngIf="isWebView" id="carouselExampleCaptions" class="carousel slide">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -21,4 +21,47 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
+</div>
+
+<div *ngIf="isAuthenticated">
+  <div *ngIf="showForm">
+    <form [formGroup]="serviceForm" class="w-50">
+      <div class="form-group">
+        <label>Title: </label>
+        <input formControlName="caption" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Description: </label>
+        <textarea formControlName="description" class="form-control"></textarea>
+      </div>
+      <div class="form-group">
+        <label>Image URL: /assets/slide1.jpg</label>
+        <input formControlName="image" class="form-control">
+      </div>
+      <div class="form-group">
+        <button *ngIf="editedIndex === null" class="btn btn-success" (click)="addSlide()">Add Slide</button>
+        <button *ngIf="editedIndex !== null" class="btn btn-info" (click)="updateService()">Update Slide</button>
+        <button class="btn btn-secondary" (click)="closeForm()">Cancel</button>
+      </div>
+    </form>
+  </div>
+  
+  <div *ngIf="!showForm" class="mt-3 mb-3">
+    <button class="btn btn-primary" (click)="openForm()">Add Slide</button>
+  </div>
+  <div *ngIf="!showForm">
+    <div *ngIf="!isWebView" class="carousel-admin">
+      <div *ngFor="let content of contents; let i = index" class="slide" [ngClass]="{ 'active': i === 0 }">
+        <img [src]="content.image" alt="{{ content.caption }}" class="img">
+        <div class="caption">
+          Title : <h5>{{ content.caption }}</h5>
+          Description: <p>{{ content.description }}</p>
+        </div>
+        <div class="btn-group">
+          <button class="btn btn-info" (click)="editService(i)">Edit</button>
+          <button class="btn btn-danger" (click)="deleteService(i)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,10 +1,59 @@
-<div class="grid-container p-4">
+<div  *ngIf="isWebView" class="grid-container p-4">
   <div *ngFor="let service of content" class="grid-item">
     <div class="card">
       <img [src]="service.image" class="card-img-top" [alt]="service.title + ' Service'">
       <div class="card-body">
         <h5 class="card-title">{{ service.title }}</h5>
         <p class="card-text">{{ service.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isAuthenticated">
+  <div *ngIf="showForm">
+    <form [formGroup]="serviceForm" class="w-50">
+      <div class="form-group">
+        <label>Title: </label>
+        <input formControlName="title" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label>Description: </label>
+        <textarea formControlName="description" class="form-control"></textarea>
+      </div>
+      <div class="form-group">
+        <label>Image URL: </label>
+        <input formControlName="image" class="form-control" />
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-success" *ngIf="editedIndex === null" (click)="addCard()">Add Service</button>
+        <button class="btn btn-info" *ngIf="editedIndex !== null" (click)="updateService()">Update Service</button>
+        <button class="btn btn-secondary" (click)="closeForm()">Cancel</button>
+      </div>
+    </form>
+  </div>
+
+  <div *ngIf="!showForm" class="mb-3">
+    <button class="btn btn-primary" (click)="openForm()">Add Card</button>
+  </div>
+
+  <div *ngIf="!showForm">
+    <div class="grid-container">
+      <div *ngFor="let content of contents; let i = index" class="service-item">
+        <div class="card p-2 d-flex flex-column">
+          <div class="card-body">
+            <img [src]="content.image" alt="{{ content.title }}" class="img-fluid" width="100" />
+          </div>
+          <div class="card-body flex-grow-1">
+            <h3 class="card-title">{{ content.title }}</h3>
+            <p class="card-text">{{ content.description }}</p>
+          </div>
+          <div class="card-footer d-flex justify-content-between">
+            <button class="btn btn-info" (click)="editService(i)">Edit</button>
+            <button class="btn btn-danger" (click)="deleteService(i)">Delete</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

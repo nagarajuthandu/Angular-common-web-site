@@ -1,5 +1,5 @@
 <ng-container [ngSwitch]="widget">
-    <app-admin-cards-widget *ngSwitchCase="'Cards'" [widget]="widget"></app-admin-cards-widget>
-    <app-admin-carousel-widget *ngSwitchCase="'Carousel'" [widget]="widget"></app-admin-carousel-widget>
+    <app-carousel *ngSwitchCase="'Carousel'" [widget]="widget"></app-carousel>
+    <app-cards *ngSwitchCase="'Cards'" [widget]="widget"></app-cards>
   </ng-container>
   

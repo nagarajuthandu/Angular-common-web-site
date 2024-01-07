@@ -29,9 +29,7 @@ import { ImageComponent } from './widgets/basic/image/image.component';
 import { ContactFormComponent } from './widgets/derived/contact-form/contact-form.component';
 import { AdminAddPageToMenuComponent } from './Admin/admin-add-page-to-menu/admin-add-page-to-menu.component';
 import { AdminCreateWebPageComponent } from './Admin/admin-create-web-page/admin-create-web-page.component';
-import { AdminCardsWidgetComponent } from './Admin/widgets/admin-cards-widget/admin-cards-widget.component';
 import { AdminWidgetsSwitchPageComponent } from './Admin/widgets/admin-widgets-switch-page/admin-widgets-switch-page.component';
-import { AdminCarouselWidgetComponent } from './Admin/widgets/admin-carousel-widget/admin-carousel-widget.component';
 import { WidgetsDashboardComponent } from './Admin/widgets/admin-widgets-dashboard/widgets-dashboard.component';
 @NgModule({
   declarations: [
@@ -55,9 +53,7 @@ import { WidgetsDashboardComponent } from './Admin/widgets/admin-widgets-dashboa
     ContactFormComponent,
     AdminAddPageToMenuComponent,
     AdminCreateWebPageComponent,
-    AdminCardsWidgetComponent,
     AdminWidgetsSwitchPageComponent,
-    AdminCarouselWidgetComponent,
     WidgetsDashboardComponent
   ],
   imports: [
