@@ -21,14 +21,39 @@
     height: 100%; /* 100% height of the item */
   }
   
-  .admin-carousel img {
-    object-fit: cover; /* Maintain aspect ratio and cover the item */
-    width: 100%; /* 100% width of the item */
-    height: 100%; /* 100% height of the item */
-  }
-    /* Media query for screens smaller than a certain width (e.g., 768px) */
+   /* Media query for screens smaller than a certain width (e.g., 768px) */
 @media (max-width: 768px) {
   .carousel {
-      height: 300px; /* Adjust the height for smaller screens */
+      height: 300px; 
   }
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.grid-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+.img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.caption {
+  margin-top: 10px;
+}
+
+.btn-group {
+  margin-top: 10px;
+}
+
+.btn {
+  margin-right: 5px;
 }

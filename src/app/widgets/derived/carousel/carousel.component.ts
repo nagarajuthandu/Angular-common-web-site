@@ -10,10 +10,10 @@ import { WidgetServiceService } from 'src/app/services/widget-service.service';
 })
 export class CarouselComponent implements OnInit {
   @Input() content:any
-  @Input()  widget: any;
+  @Input() widget: any;
   @Input() isWebView: boolean = false
-   slides: any[] = [];
-   services: any;
+  slides: any[] = [];
+  services: any;
   contents:any[]=[];
   serviceForm: FormGroup;
   editedIndex: number | null = null;
@@ -28,7 +28,7 @@ export class CarouselComponent implements OnInit {
     private serviceService: WidgetServiceService,
     private fb: FormBuilder){
       this.serviceForm = this.fb.group({
-        title: [''],
+        caption: [''],
         description: [''],
         image: [''],
       });
@@ -37,10 +37,13 @@ export class CarouselComponent implements OnInit {
 
   ngOnInit() {
     this.isAuthenticated = this.authService.isAuthenticated()
-    if (this.isAuthenticated) {
+    if (this.isAuthenticated && !this.isWebView) {
       this.loadServices();
     }
-    this.slides = this.content;
+    if(this.isWebView)
+    {
+      this.slides = this.content;
+    }
   }
 
   

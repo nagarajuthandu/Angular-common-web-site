@@ -30,14 +30,18 @@ export class CardsComponent implements OnInit{
       });
     }
   ngOnInit(): void {
-    this.services = this.content
     this.isAuthenticated = this.authService.isAuthenticated()
-    if (this.isAuthenticated) {
+    if (this.isAuthenticated && !this.isWebView) {
       this.loadServices();
+    }
+    if(this.isWebView)
+    {
+      this.services = this.content
     }
   }
  
   loadServices(): void {
+    console.log(this.widget)
     this.serviceService.getWidget(this.widget).subscribe((widget) => {
       this.widgetId = widget[0]._id;
       this.serviceService.getServices(this.widgetId).subscribe((services) => {

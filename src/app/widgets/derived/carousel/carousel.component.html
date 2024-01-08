@@ -23,7 +23,7 @@
   </button>
 </div>
 
-<div *ngIf="isAuthenticated">
+<div *ngIf="isAuthenticated && !isWebView">
   <div *ngIf="showForm">
     <form [formGroup]="serviceForm" class="w-50">
       <div class="form-group">
@@ -50,12 +50,12 @@
     <button class="btn btn-primary" (click)="openForm()">Add Slide</button>
   </div>
   <div *ngIf="!showForm">
-    <div *ngIf="!isWebView" class="carousel-admin">
-      <div *ngFor="let content of contents; let i = index" class="slide" [ngClass]="{ 'active': i === 0 }">
+    <div class="grid-container">
+      <div *ngFor="let content of contents; let i = index" class="grid-item">
         <img [src]="content.image" alt="{{ content.caption }}" class="img">
         <div class="caption">
-          Title : <h5>{{ content.caption }}</h5>
-          Description: <p>{{ content.description }}</p>
+          <h5>Title: {{ content.caption }}</h5>
+          <p>Description: {{ content.description }}</p>
         </div>
         <div class="btn-group">
           <button class="btn btn-info" (click)="editService(i)">Edit</button>
@@ -63,5 +63,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </div>  
 </div>

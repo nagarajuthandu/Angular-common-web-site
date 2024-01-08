@@ -10,7 +10,7 @@
   </div>
 </div>
 
-<div *ngIf="isAuthenticated">
+<div *ngIf="isAuthenticated && !isWebView">
   <div *ngIf="showForm">
     <form [formGroup]="serviceForm" class="w-50">
       <div class="form-group">
